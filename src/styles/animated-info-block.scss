@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+.animated-info-block-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+
+  h1 {
+    font-family: $primary-font-thin;
+  }
+
+  h2 {
+    font-family: $primary-font-regular;
+  }
+}
