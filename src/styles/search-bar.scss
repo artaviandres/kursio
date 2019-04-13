@@ -1,0 +1,50 @@
+@import './variables.scss';
+
+.search-bar-container {
+  display: flex;
+  height: 50px;
+
+  .search-bar-categories {
+    width: 25%;
+    background-color: $bottom-header-category-gray-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: $primary-font-bold;
+    font-size: 14px;
+    color: $bottom-header-category-gray-text;
+    cursor: pointer;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  .search-bar-input {
+    width: 65%;
+    background-color: white;
+
+    input {
+      height: 92%;
+      width: 100%;
+      border: 0;
+      padding-left: 10px;
+      font-family: $primary-font-thin;
+      font-size: 16px;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  .search-bar-button {
+    width: 10%;
+    background-color: $secondary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}

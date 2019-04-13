@@ -1,0 +1,32 @@
+@import './variables.scss';
+
+.category-col-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .category-container {
+    background-color: $category-bg;
+    border: $category-border;
+    border-radius: 33px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+    color: $category-font-color;
+    font-family: $primary-font-light;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $secondary-color;
+      color: white;
+      font-family: $primary-font-regular;
+    }
+  
+    svg {
+      margin-right: 10px;
+    }
+  }
+}

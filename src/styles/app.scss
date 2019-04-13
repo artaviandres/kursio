@@ -1,0 +1,49 @@
+@import './variables.scss';
+
+.app-container {
+  padding: 0 8px;
+  width: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .subscribe-container {
+    background-color: $primary-color;
+    height: 195px;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+
+    .subscribe-content {
+      width: auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+
+      .subscribe-panel {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+
+        p {
+          margin: 0;
+          font-family: $primary-font-thin;
+        }
+
+        h3 {
+          margin: 0 0 15px 0;
+          font-family: $primary-font-regular;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .animations-container {
+    background: $primary-gradient;
+  }
+
+  .top-margin {
+    margin-top: 150px;
+  }
+}
