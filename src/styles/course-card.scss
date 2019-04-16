@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+.course-card-container {
+  cursor: pointer;
+  margin: 15px 0 !important;
+  max-width: 280px !important;
+  max-height: 383px !important;
+
+  img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 150px;
+  }
+
+  &:nth-child(2) {
+    margin: 15px 10px !important;
+  }
+
+  .course-card-header {
+    margin-top: 5px !important;
+  }
+
+  .rating-and-prices {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin-left: 10px;
+    }
+
+    p {
+      position: absolute;
+      margin-left: 80% !important;
+      font-family: $primary-font-bold;
+      font-size: 16px;
+    }
+  }
+}

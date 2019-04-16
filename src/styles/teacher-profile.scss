@@ -1,0 +1,39 @@
+.teacher-container {
+  padding: 0 8px;
+  width: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .top-margin {
+    margin-top: 200px;
+    height: 700px;
+  }
+
+  .teacher-personal-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .teacher-rating {
+      display: flex;
+    }
+  }
+
+  .social-media {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .row-container {
+    border-bottom: 1px solid #e1e2e4;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+
+    .bio-text {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 26px;
+    }
+  }
+}
