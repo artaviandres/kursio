@@ -6,8 +6,16 @@ import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
 import LogInModal from '../presentationals/LogInModal';
 import SignUpModal from '../presentationals/SignUpModal';
+import CourseCard from '../presentationals/CourseCard';
+import Text from '../presentationals/Text';
 
 import '../../styles/app.scss';
+
+//img
+import UserPicture from '../../assets/img/profilepicture.jpg';
+import ReactBg from '../../assets/img/logo-og.png';
+import VueBg from '../../assets/img/vue.png';
+import CookiesBg from '../../assets/img/cookies.jpg';
 
 export default function App() {
   const { i18n, t } = useTranslation();
@@ -22,7 +30,7 @@ export default function App() {
     setModalOpen(true);
     setSelectedModal('login')
   };
-  
+
   const openSignUp = () => {
     setModalOpen(true);
     setSelectedModal('signup')
@@ -83,10 +91,89 @@ export default function App() {
     <React.Fragment>
       <Grid fluid className="app-container">
         <Row>
-          <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()}  />
+          <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()} />
         </Row>
         <Row className="top-margin">
           {categories.map(category => <Category key={category.text_key} icon={category.icon} text={t(category.text_key)} />)}
+        </Row>
+        <Row between="md" className="row-container section-title">
+          <Col xs={12}>
+            <Text size="35px" type="thin" margin="0">Recent Courses</Text>
+          </Col>
+        </Row>
+        <Row className="row-container">
+          <CourseCard
+            title="React Basics"
+            category="Development"
+            rating="4.5"
+            numberOfRatings="18"
+            price="$55"
+            image={ReactBg}
+            description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
+          />
+          <CourseCard
+            title="VueJS Basics"
+            category="Development"
+            rating="3"
+            numberOfRatings="93"
+            price="$95"
+            image={VueBg}
+            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+          />
+          <CourseCard
+            title="Baking some amazing Cookies!"
+            category="Cooking"
+            rating="5"
+            numberOfRatings="93"
+            price="$25"
+            image={CookiesBg}
+            description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+          />
+          <CourseCard
+            title="VueJS Basics"
+            category="Development"
+            rating="3"
+            numberOfRatings="93"
+            price="$95"
+            image={VueBg}
+            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+          />
+          <CourseCard
+            title="Baking some amazing Cookies!"
+            category="Cooking"
+            rating="5"
+            numberOfRatings="93"
+            price="$25"
+            image={CookiesBg}
+            description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+          />
+          <CourseCard
+            title="VueJS Basics"
+            category="Development"
+            rating="3"
+            numberOfRatings="93"
+            price="$95"
+            image={VueBg}
+            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+          />
+          <CourseCard
+            title="Baking some amazing Cookies!"
+            category="Cooking"
+            rating="5"
+            numberOfRatings="93"
+            price="$25"
+            image={CookiesBg}
+            description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+          />
+          <CourseCard
+            title="VueJS Basics"
+            category="Development"
+            rating="3"
+            numberOfRatings="93"
+            price="$95"
+            image={VueBg}
+            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+          />
         </Row>
         <Row>
           <Col md={12} className="subscribe-container">
