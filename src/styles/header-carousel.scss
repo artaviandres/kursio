@@ -1,0 +1,70 @@
+@import './variables.scss';
+
+.header-carousel {
+    .carousel { 
+        .control-arrow {
+            position: absolute;
+            top: 50%;
+            height: 92px;
+            width: 48px;
+            margin-top: -46px;
+            border: 0;
+            line-height: 92px;
+            border-radius: 23px;
+            font-size: 24px;
+            background-color: #fff;
+            z-index: 2000;
+
+            &:before {
+                content: '';
+                display: block;
+                margin-left: 15px;
+                width: 17px;
+                height: 17px;
+                border: none; 
+                border-bottom: 1px solid #273044;
+                border-left: 1px solid #273044;
+                transform: rotate(45deg);
+                transition: .3s ease;
+            }
+            &.control-prev {
+                left: 70px;
+            }
+            &.control-next{
+                right: 70px;
+                &:before {
+                    margin-left: 8px;
+                    transform: rotate(225deg);
+                }
+            }
+        }
+        .slide {
+            background-color: $category-bg;
+            padding: 26px 0 59px;
+        }
+
+        .slide img {
+            width: 43%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            border-radius: 10px;
+            border: none;
+            float: left;
+            height: 350px;
+        }
+        a {
+            position: relative;
+        }
+    }
+    .slide-information {
+        padding: 30px;
+        width: 57%;
+        float: right;
+    }
+    .course-details {
+        >div{
+            margin-right: 35px;
+        }
+    }
+}

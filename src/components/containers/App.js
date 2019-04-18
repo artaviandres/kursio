@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FaRegLightbulb } from "react-icons/fa";
 import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
+import HeaderCarousel from '../presentationals/HeaderCarousel';
 import LogInModal from '../presentationals/LogInModal';
 import SignUpModal from '../presentationals/SignUpModal';
 import CourseCard from '../presentationals/CourseCard';
@@ -12,7 +13,6 @@ import Text from '../presentationals/Text';
 import '../../styles/app.scss';
 
 //img
-import UserPicture from '../../assets/img/profilepicture.jpg';
 import ReactBg from '../../assets/img/logo-og.png';
 import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
@@ -89,10 +89,11 @@ export default function App() {
 
   return (
     <React.Fragment>
+      <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()} />
+      <div className="header-carousel">
+      <HeaderCarousel />
+      </div>
       <Grid fluid className="app-container">
-        <Row>
-          <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()} />
-        </Row>
         <Row className="top-margin">
           {categories.map(category => <Category key={category.text_key} icon={category.icon} text={t(category.text_key)} />)}
         </Row>
