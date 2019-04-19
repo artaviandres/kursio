@@ -14,4 +14,60 @@
   &:focus {
     outline: 0;
   }
+
+  &.button-rounded-md {
+    border-radius: 10px;
+    padding: 0 30px;
+    width: auto;
+  }
+
+  &.button-secondary-color {
+    background-color: $secondary-color;
+  }
+
+  &.animation-hover {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      background: rgba(0,0,0,.1);
+      height: 100%;
+      left: -100%;
+      position: absolute;
+      top: 0;
+      transition: 0.2s;
+      width: 100%;
+    }
+    &:hover::before{
+      left: 0;
+      transition: all .25s cubic-bezier(.66,.36,.17,.91);
+    }
+  }
+}
+
+.heart-wishlisted-wrapper {
+  &:hover .icon-heart-wishlisted {
+    color: white;
+    background-color: $category-font-color;
+  }
+  &.disabled {
+    color: $bottom-header-category-gray-text;
+    p {
+      color: $bottom-header-category-gray-text;
+    }
+    .icon-heart-wishlisted {
+      color: $bottom-header-category-gray-text;
+      border-color: $bottom-header-category-gray-text;
+      fill: transparent;
+    }
+    &:hover {
+      p {
+        color: $category-font-color;
+      }
+      .icon-heart-wishlisted {
+        color: white;
+        background-color: $category-font-color;
+      }
+    }
+  }
 }

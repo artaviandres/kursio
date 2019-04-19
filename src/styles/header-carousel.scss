@@ -3,68 +3,89 @@
 .header-carousel {
     .carousel { 
         .control-arrow {
-            position: absolute;
-            top: 50%;
-            height: 92px;
-            width: 48px;
-            margin-top: -46px;
             border: 0;
-            line-height: 92px;
             border-radius: 23px;
-            font-size: 24px;
             background-color: #fff;
+            font-size: 24px;
+            height: 92px;
+            position: absolute; 
+            margin-top: -46px;
+            opacity: 1;
+            width: 48px;
+            top: 50%;
             z-index: 2000;
 
             &:before {
                 content: '';
-                display: block;
-                margin-left: 15px;
-                width: 17px;
-                height: 17px;
                 border: none; 
                 border-bottom: 1px solid #273044;
                 border-left: 1px solid #273044;
+                display: block;
+                height: 17px;
+                margin-left: 15px;
                 transform: rotate(45deg);
                 transition: .3s ease;
+                width: 17px;
             }
             &.control-prev {
-                left: 70px;
+                left: 50px;
             }
             &.control-next{
-                right: 70px;
+                right: 50px;
                 &:before {
                     margin-left: 8px;
                     transform: rotate(225deg);
                 }
             }
+
+            &:hover {
+                background-color: $secondary-color;
+                &:before {
+                    border-color: #fff;
+                }
+            }
         }
         .slide {
             background-color: $category-bg;
-            padding: 26px 0 59px;
+            padding: 65px 0;
         }
 
-        .slide img {
-            width: 43%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
+        .slide .img-slide {
             border-radius: 10px;
-            border: none;
             float: left;
             height: 350px;
+            object-fit: cover;
+            width: 43%;
         }
         a {
             position: relative;
         }
     }
     .slide-information {
-        padding: 30px;
-        width: 57%;
         float: right;
+        padding: 20px 0 0 60px;
+        width: 57%;
+        >.row {
+            margin-bottom: 30px;
+        }
     }
     .course-details {
         >div{
             margin-right: 35px;
         }
     }
+    .profile-info-image {
+        img {
+            border-radius: 50%;
+            height: 50px;
+            object-fit: cover;
+            overflow: hidden;
+            width: 50px;
+        }
+    }
+}
+
+.vertical-align-center {
+    display: "flex";
+    align-items: "center" 
 }
