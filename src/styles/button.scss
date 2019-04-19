@@ -56,8 +56,8 @@
       color: $bottom-header-category-gray-text;
     }
     .icon-heart-wishlisted {
-      color: $bottom-header-category-gray-text;
       border-color: $bottom-header-category-gray-text;
+      color: $bottom-header-category-gray-text;
       fill: transparent;
     }
     &:hover {
@@ -65,8 +65,8 @@
         color: $category-font-color;
       }
       .icon-heart-wishlisted {
-        color: white;
         background-color: $category-font-color;
+        color: white;
       }
     }
   }

@@ -26,7 +26,14 @@ export default function HeaderCarousel() {
                     name: "Joe Blow",
                     image: UserPicture
                 }}
-                category="Audio & Music"
+                category={{
+                    name:"Audio & Music",
+                    url:"#Audio & Music"
+                }}
+                course={{
+                    name:"React Basics",
+                    url:"#React_Basics"
+                }}
                 rating={{
                     rating: 4.5,
                     reviews: 100
@@ -39,7 +46,14 @@ export default function HeaderCarousel() {
                     name: "Joe Blow",
                     image: UserPicture
                 }}
-                category="Audio & Music"
+                course={{
+                    name:"VueJS Basics",
+                    url:"#VueJS_Basics"
+                }}
+                category={{
+                    name:"Audio & Music",
+                    url:"#Audio & Music"
+                }}
                 rating={{
                     rating: 4,
                     reviews: 100
@@ -52,7 +66,14 @@ export default function HeaderCarousel() {
                     name: "Joe Blow",
                     image: UserPicture
                 }}
-                category="Audio & Music"
+                course={{
+                    name:"Baking some amazing Cookies!",
+                    url:"#React_Basics"
+                }}
+                category={{
+                    name:"Audio & Music",
+                    url:"#Audio_&_Music"
+                }}
                 rating={{
                     rating: 4,
                     reviews: 100
