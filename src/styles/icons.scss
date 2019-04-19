@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+.icon-blue {
+    color:$blue-secondary;
+    margin:0 5px -2px 0 ;
+}
+
+.icon-heart-wishlisted {
+    border: 1px solid $category-font-color;
+    border-radius: 50%;
+    color: $rose-color;
+    display: inline-block;
+    height: 30px;
+    padding: 6px;
+    position: relative;
+    width: 30px;
+    transition: .5s ease;
+}

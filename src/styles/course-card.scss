@@ -37,3 +37,39 @@
     }
   }
 }
+
+.app-container {
+  .course-card-container {
+    margin: 0 auto 50px auto !important;
+    width: 100% !important;
+    max-width: 340px !important;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .app-container {
+    .course-card-container {
+      margin: 0 auto 50px !important;
+      width: 48% !important;
+      max-width: 48% !important;
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+  .app-container {
+    .course-card-container {
+      width: 31.33% !important;
+      max-width: 31.33% !important;
+    }
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .app-container {
+    .course-card-container {
+      width: 23% !important;
+      max-width: 23% !important;
+    }
+  }
+}
