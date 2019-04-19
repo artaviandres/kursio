@@ -28,10 +28,10 @@
                 width: 17px;
             }
             &.control-prev {
-                left: 50px;
+                left: 15px;
             }
             &.control-next{
-                right: 50px;
+                right: 15px;
                 &:before {
                     margin-left: 8px;
                     transform: rotate(225deg);
@@ -47,28 +47,28 @@
         }
         .slide {
             background-color: $category-bg;
-            padding: 65px 0;
+            padding: 65px 45px;
         }
 
-        .slide .img-slide {
+        .img-slide {
             border-radius: 10px;
             float: left;
-            height: 350px;
+            height: 200px;
             overflow: hidden;
-            width: 43%;
+            width: 100%;
             img {
                 height: 100%;
                 object-fit: cover;
                 width: 100%;
             }
         }
-    }
-    .slide-information {
-        float: right;
-        padding: 20px 0 0 60px;
-        width: 57%;
-        >.row {
-            margin-bottom: 30px;
+        .slide-information {
+            float: right;
+            padding: 15px;
+            width: 100%;
+            >.row {
+                margin-bottom: 30px;
+            }
         }
     }
 
@@ -92,4 +92,48 @@
 .vertical-align-center {
     display: flex;
     align-items: center;
+}
+
+@media (min-width: $screen-md) {
+    .header-carousel {
+        .carousel {  
+            .slide {
+                padding: 65px 110px;
+            }
+            .img-slide {
+                height: 300px;
+            }
+            .control-arrow {
+                &.control-prev {
+                    left: 50px;
+                }
+                &.control-next{
+                    right: 50px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-lg) {
+    .header-carousel {
+        .carousel { 
+            .img-slide {
+                float: left;
+                height: 350px;
+                width: 43%;
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+        
+            .slide-information {
+                float: right;
+                padding: 20px 0 0 60px;
+                width: 57%;
+            }
+        }
+    }
 }

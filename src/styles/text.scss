@@ -16,9 +16,37 @@
   font-family: $primary-font-bold;
 }
 
-.text-align-left {
+
+.sm-text-align-left {
   text-align: left;
 }
-.text-align-right {
+.sm-text-align-right {
   text-align: right;
+}
+
+@media (min-width: $screen-sm) {
+  .md-text-align-left {
+    text-align: left;
+  }
+  .md-text-align-right {
+    text-align: right;
+  }
+}
+
+@media (min-width: $screen-md) {
+  .lg-text-align-left {
+    text-align: left;
+  }
+  .lg-text-align-right {
+    text-align: right;
+  }
+}
+
+@media (min-width: $screen-lg) {
+  .xlg-text-align-left {
+    text-align: left;
+  }
+  .xlg-text-align-right {
+    text-align: right;
+  }
 }

@@ -46,6 +46,11 @@
 }
 
 .heart-wishlisted-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0px 30px;
+  color: initial;
+
   &:hover .icon-heart-wishlisted {
     color: white;
     background-color: $category-font-color;
@@ -68,6 +73,19 @@
         background-color: $category-font-color;
         color: white;
       }
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  .xs-full-width {
+    &.button-container {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    &.heart-wishlisted-wrapper {
+      margin: auto;
+      width: auto;
     }
   }
 }

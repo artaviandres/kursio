@@ -5,7 +5,7 @@ import { FaHeart } from "react-icons/fa";
 import '../../styles/icons.scss';
 import '../../styles/link.scss';
 
-export default function CourseDetailsHeader({ isCourseAdded }) {
+export default function CourseDetailsHeader({ isCourseAdded, classList }) {
     const [isAdded, changeCourseState] = useState(isCourseAdded);
     const [loading, setLoading] = useState(false);
 
@@ -23,7 +23,7 @@ export default function CourseDetailsHeader({ isCourseAdded }) {
     }
 
     return (
-        <a className={`heart-wishlisted-wrapper ${isAdded ? "" : "disabled"}`} href="#" style={{ display: "flex", alignItems: "center", margin: "0 30px", color: "initial" }}
+        <a className={`heart-wishlisted-wrapper ${isAdded ? "" : "disabled"} ${classList}`} href="#"
             onClick={(e) => { addToWishlist(e) }} >
             <span className={`icon-heart-wishlisted ${loading ? "loading" : ""}`}><FaHeart size="16" style={{ display: loading ? "none" : "inline" }} /></span><Text size="14px" type="regular" margin="0 0 0 8px">{isAdded ? "Wishlisted" : "Add to wishlist"}</Text>
         </a>

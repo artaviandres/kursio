@@ -94,7 +94,7 @@ export default function App() {
       <HeaderCarousel />
       </div>
       <Grid fluid className="app-container">
-        <Row className="top-margin">
+        <Row >
           {categories.map(category => <Category key={category.text_key} icon={category.icon} text={t(category.text_key)} />)}
         </Row>
         <Row between="md" className="row-container section-title">
