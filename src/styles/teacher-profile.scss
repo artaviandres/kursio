@@ -5,8 +5,7 @@
   margin: 0 auto;
 
   .top-margin {
-    margin-top: 200px;
-    height: 700px;
+    margin-top: 30px;
   }
 
   .teacher-personal-info {
@@ -35,5 +34,9 @@
       font-size: 14px;
       line-height: 26px;
     }
+  }
+
+  .row-courses {
+    border-bottom: 0;
   }
 }
