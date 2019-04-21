@@ -9,6 +9,7 @@ import LogInModal from '../presentationals/LogInModal';
 import SignUpModal from '../presentationals/SignUpModal';
 import CourseCard from '../presentationals/CourseCard';
 import Text from '../presentationals/Text';
+import Footer from '../presentationals/Footer';
 
 import '../../styles/app.scss';
 
@@ -194,6 +195,7 @@ export default function App() {
           </Col>
         </Row>
       </Grid>
+      <Footer margin="195px 0 0 0" />
       {isModalOpen && selectedModal === 'login' ? <LogInModal /> : null}
       {isModalOpen && selectedModal === 'signup' ? <SignUpModal /> : null}
     </React.Fragment>
