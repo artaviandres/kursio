@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Trans, useTranslation } from "react-i18next";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FaRegLightbulb } from "react-icons/fa";
+import { connect } from 'react-redux';
 import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
 import HeaderCarousel from '../presentationals/HeaderCarousel';
@@ -18,7 +19,7 @@ import ReactBg from '../../assets/img/logo-og.png';
 import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
 
-export default function App() {
+function App({ logInModalStatus, signUpModalStatus }) {
   const { i18n, t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedModal, setSelectedModal] = useState('');
@@ -90,7 +91,7 @@ export default function App() {
 
   return (
     <React.Fragment>
-      <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()} />
+      <Header changeLanguage={(val) => changeLanguage(val)} />
       <div className="header-carousel">
       <HeaderCarousel />
       </div>
@@ -196,8 +197,15 @@ export default function App() {
         </Row>
       </Grid>
       <Footer margin="195px 0 0 0" />
-      {isModalOpen && selectedModal === 'login' ? <LogInModal /> : null}
-      {isModalOpen && selectedModal === 'signup' ? <SignUpModal /> : null}
+      {logInModalStatus ? <LogInModal /> : null}
+      {signUpModalStatus ? <SignUpModal /> : null}
     </React.Fragment>
   );
 }
+
+const mapStateToProps = (state) => ({
+  logInModalStatus: state.modalsReducer.logInModal ? state.modalsReducer.logInModal : false,
+  signUpModalStatus: state.modalsReducer.signUpModal ? state.modalsReducer.signUpModal : false,
+});
+
+export default connect(mapStateToProps, null)(App);

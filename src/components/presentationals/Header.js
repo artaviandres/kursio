@@ -2,12 +2,15 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FaRegBookmark, FaRegUser } from "react-icons/fa";
 import { Trans, useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 import Dropdown from './Dropdown';
 import SearchBar from './SearchBar';
 import Button from './Button';
 import '../../styles/header.scss';
 
-export default function Header({ changeLanguage, onOpenLogIn, onOpenSignUp }) {
+import { setLogInModal, setSignUpModal } from '../../store/actions/modals';
+
+function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
   const { t } = useTranslation();
   const languageOptions = [
     {
@@ -40,11 +43,11 @@ export default function Header({ changeLanguage, onOpenLogIn, onOpenSignUp }) {
                 </Col>
                 <Col md={3} className="bottom-header-right">
                   <div className="personal-info-container">
-                    <a onClick={() => onOpenLogIn()}>
+                    <a onClick={() => setLogInModalStatus(true)}>
                       <FaRegUser color="white" />
                       <span><Trans i18nKey="log_in_text" /></span>
                     </a>
-                    <Button text={t('sign_up_text')} bgColor="#19c895" color="#fff" onClick={() => onOpenSignUp()} />
+                    <Button text={t('sign_up_text')} bgColor="#19c895" color="#fff" onClick={() => setSignUpModalStatus(true)} />
                     <div className="personal-info-bookmark">
                       <FaRegBookmark color="#19c895" size={28} />
                     </div>
@@ -58,3 +61,10 @@ export default function Header({ changeLanguage, onOpenLogIn, onOpenSignUp }) {
     </Col>
   )
 }
+
+const mapDispatchToProps = dispatch => ({
+  setLogInModalStatus: (status) => dispatch(setLogInModal(status)),
+  setSignUpModalStatus: (status) => dispatch(setSignUpModal(status)),
+});
+
+export default connect(null, mapDispatchToProps)(Header);
