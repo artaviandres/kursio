@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Rating } from 'semantic-ui-react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Header from '../presentationals/Header';
-import ProfilePicture from '../presentationals/ProfilePicture';
+import ProfileInfoSidebar from '../presentationals/ProfileInfoSidebar';
 import Text from '../presentationals/Text';
 import SocialMediaIcon from '../presentationals/SocialMediaIcon';
 import CourseCard from '../presentationals/CourseCard';
@@ -41,16 +41,19 @@ export default function TeacherProfile() {
       <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()}  />
       <Grid fluid className="teacher-container">
         <Row className="top-margin">
-          <Col md={3} xs={12} className="teacher-personal-info">
-            <ProfilePicture img={UserPicture} size="big" />
-            <Text size="24px" type="bold" margin="30px 0 10px 0">Andrés Artavia</Text>
-            <Text size="16px" type="light" margin="0 0 15px 0 ">Software Engineer</Text>
-            <div className="teacher-rating">
-              <Rating icon='star' defaultRating={4} maxRating={5} disabled size='large' />
-              <Text size="14px" type="bold" margin="0 0 0 10px">4 / 5</Text>
-            </div>
-            <Text size="13px" type="light" margin="5px 0 0 0" color="#ccc">22 Reviews</Text>
-          </Col>
+        <ProfileInfoSidebar
+            rating={{
+              rating: 4,
+              reviews: 100
+            }}
+            profile={{
+              name:"Andrés Artavia",
+              ocupation:"Software Engineer",
+              isTeacherProfile:true,
+              UserPicture : UserPicture
+
+            }} 
+            />
           <Col md={9} xs={12}>
             <Grid fluid>
               <Row between="md" className="row-container">
