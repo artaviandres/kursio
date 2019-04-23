@@ -38,7 +38,7 @@
   }
 }
 
-.app-container {
+.cards-wrapper {
   .course-card-container {
     margin: 0 auto 50px auto !important;
     width: 100% !important;
@@ -47,9 +47,9 @@
 }
 
 @media (min-width: $screen-sm) {
-  .app-container {
+  .cards-wrapper {
     .course-card-container {
-      margin: 0 auto 50px !important;
+      margin: 0 1% 50px !important;
       width: 48% !important;
       max-width: 48% !important;
     }
@@ -57,19 +57,28 @@
 }
 
 @media (min-width: $screen-md) {
-  .app-container {
-    .course-card-container {
-      width: 31.33% !important;
-      max-width: 31.33% !important;
+  .cards-wrapper {
+    &.full-width {
+      .course-card-container {
+        width: 31.33% !important;
+        max-width: 31.33% !important;
+      }
     }
   }
 }
 
 @media (min-width: $screen-lg) {
-  .app-container {
+  .cards-wrapper {
     .course-card-container {
-      width: 23% !important;
-      max-width: 23% !important;
+      width: 31.33% !important;
+      max-width: 31.33% !important;
+    }
+    &.full-width {
+      .course-card-container {
+        width: 23% !important;
+        max-width: 23% !important;
+      }
     }
   }
 }
+

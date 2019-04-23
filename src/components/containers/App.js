@@ -104,7 +104,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
             <Text size="35px" type="thin" margin="0">Recent Courses</Text>
           </Col>
         </Row>
-        <Row className="row-container">
+        <Row className="row-container cards-wrapper">
           <CourseCard
             title="React Basics"
             category="Development"
