@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+.modal-input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+
+  label {
+    text-transform: uppercase;
+    font-family: $primary-font-regular;
+    margin-bottom: 5px;
+  }
+
+  .ui.input input:focus {
+    border-color: $modal-input-label-color !important;
+  }
+
+  .input {
+    font-family: $primary-font-thin !important;
+  }
+}

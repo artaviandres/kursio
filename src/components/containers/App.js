@@ -3,11 +3,13 @@ import { Trans, useTranslation } from "react-i18next";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FaRegLightbulb } from "react-icons/fa";
 import { connect } from 'react-redux';
+import { Tab } from 'semantic-ui-react'
 import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
 import HeaderCarousel from '../presentationals/HeaderCarousel';
 import LogInModal from '../presentationals/LogInModal';
 import SignUpModal from '../presentationals/SignUpModal';
+import Modal from '../presentationals/Modal';
 import CourseCard from '../presentationals/CourseCard';
 import Text from '../presentationals/Text';
 import Footer from '../presentationals/Footer';
@@ -21,22 +23,15 @@ import CookiesBg from '../../assets/img/cookies.jpg';
 
 function App({ logInModalStatus, signUpModalStatus }) {
   const { i18n, t } = useTranslation();
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedModal, setSelectedModal] = useState('');
 
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
   };
 
-  const openLogIn = () => {
-    setModalOpen(true);
-    setSelectedModal('login')
-  };
-
-  const openSignUp = () => {
-    setModalOpen(true);
-    setSelectedModal('signup')
-  };
+  const modalPanes = [
+    { menuItem: 'Log In', render: () => <LogInModal /> },
+    { menuItem: 'Sign Up', render: () => <SignUpModal /> },
+  ]
 
   const categories = [
     {
@@ -197,8 +192,11 @@ function App({ logInModalStatus, signUpModalStatus }) {
         </Row>
       </Grid>
       <Footer margin="195px 0 0 0" />
-      {logInModalStatus ? <LogInModal /> : null}
-      {signUpModalStatus ? <SignUpModal /> : null}
+      {logInModalStatus || signUpModalStatus ?
+        <Modal width="40%" height="70%">
+          <Tab menu={{ secondary: true, pointing: true }} panes={modalPanes} className="modal-tab" />
+        </Modal>
+      : null}
     </React.Fragment>
   );
 }
