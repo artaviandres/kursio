@@ -20,7 +20,7 @@ import CookiesBg from '../../assets/img/cookies.jpg';
 const panes = [
   {
     menuItem: 'My Courses', render: () => <Tab.Pane>
-      <Row className="row-container row-courses divission-border cards-wrapper">
+      <Row className="row-container row-courses cards-wrapper">
         <CourseCard
           title="React Basics"
           category="Development"
@@ -29,6 +29,8 @@ const panes = [
           price="$55"
           image={ReactBg}
           description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
+          type="userProfileProgress"
+          progress="75"
         />
         <CourseCard
           title="VueJS Basics"
@@ -38,6 +40,8 @@ const panes = [
           price="$95"
           image={VueBg}
           description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+          type="userProfileProgress"
+          progress="85"
         />
         <CourseCard
           title="VueJS Basics"
@@ -47,6 +51,8 @@ const panes = [
           price="$95"
           image={VueBg}
           description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+          type="userProfileProgress"
+          progress="65"
         />
         <CourseCard
           title="Baking some amazing Cookies!"
@@ -56,6 +62,8 @@ const panes = [
           price="$25"
           image={CookiesBg}
           description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+          type="userProfileProgress"
+          progress="70"
         />
       </Row>
     </Tab.Pane>

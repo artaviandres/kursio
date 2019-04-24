@@ -89,6 +89,8 @@ export default function UserProfile() {
                   price="$55"
                   image={ReactBg}
                   description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
+                  type="userProfile"
+                  views="800"
                 />
                 <CourseCard
                   title="VueJS Basics"
@@ -98,6 +100,8 @@ export default function UserProfile() {
                   price="$95"
                   image={VueBg}
                   description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+                  type="userProfile"
+                  views="800"
                 />
                 <CourseCard
                   title="Baking some amazing Cookies!"
@@ -107,6 +111,8 @@ export default function UserProfile() {
                   price="$25"
                   image={CookiesBg}
                   description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+                  type="userProfile"
+                  views="800"
                 />
               </Row>
             </Grid>

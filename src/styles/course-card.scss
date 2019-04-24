@@ -23,18 +23,51 @@
 
   .rating-and-prices {
     display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
     align-items: center;
+
+    &.user-profile {
+      display: block;
+    }
 
     label {
       margin-left: 10px;
     }
 
-    p {
-      position: absolute;
-      margin-left: 80% !important;
+    .bold {
       font-family: $primary-font-bold;
       font-size: 16px;
     }
+  }
+
+  .position-right {
+    margin-left: auto !important;
+    float: right;
+  }
+
+  .position-left {
+    float: left;
+  }
+
+  .buttons-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .courses_single_progress_bar {
+    margin: 0 0 20px;
+    position: relative;
+    height: 5px;
+    background-color: #e0e0e0;
+  }
+  .courses_single_progress_filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #17d292;
   }
 }
 
