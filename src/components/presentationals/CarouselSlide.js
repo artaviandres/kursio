@@ -21,7 +21,7 @@ export default function CarouselSlide({ image, teacher, category, rating, isCour
             <div className="slide-information">
                 <CourseDetailsHeader teacher={teacher} category={category} rating={rating}/>
                 <Row className="text-align-left">
-                    <a className="green-url" href={course.url}>
+                    <a className="green-url-hover" href={course.url}>
                         <Text size="32px" type="thin" margin="0">{course.name}</Text>
                     </a>
                 </Row>
