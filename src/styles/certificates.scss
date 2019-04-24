@@ -9,6 +9,12 @@
   .top-margin {
     margin-top: 30px;
 
+    .certificates-container-row {
+      @media (max-width: $screen-sm) {
+        margin-top: 60px;
+      }
+    }
+
     .certificates-item-container {
       display: flex;
       
@@ -36,5 +42,12 @@
     border-bottom: 1px solid #e1e2e4;
     padding-bottom: 20px;
     margin-bottom: 30px;
+
+    .row-container-title {
+      @media (max-width: $screen-sm) {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
 }
