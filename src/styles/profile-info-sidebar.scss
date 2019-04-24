@@ -3,7 +3,26 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+    
     .teacher-rating {
         display: flex;
+    }
+
+    .personal-info-cta-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .personal-info-link {
+            display: flex;
+            align-items: center;
+            margin: 4px 0;
+            color: #777;
+    
+            p {
+                margin-top: 4px;
+                font-size: 14px !important;
+            }
+        }
     }
 }
