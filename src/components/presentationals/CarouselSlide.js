@@ -31,7 +31,7 @@ export default function CarouselSlide({ image, teacher, category, rating, isCour
                     <Col><Text size="16px" type="regular" margin="0"><FaRegClock className="icon-blue" />6 Hours</Text></Col>
                 </Row>
                 <Row className="slide-button-section" style={{marginBottom:0}}>
-                    <Button color="#fff" text="Start Course" classList="button-rounded-md animation-hover button-secondary-color xs-full-width "
+                    <Button color="#fff" text="Start Course" classList="button-rounded-md animation-hover button-secondary-color xs-full-width-button"
                         onClick={() => {
                             // start course logic
                             console.log('start course')

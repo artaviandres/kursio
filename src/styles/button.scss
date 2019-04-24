@@ -21,6 +21,10 @@
     width: auto;
   }
 
+  &.button-not-rounded {
+    border-radius: 0;
+  }
+
   &.button-secondary-color {
     background-color: $secondary-color;
   }
@@ -77,8 +81,12 @@
   }
 }
 
+.full-width-button {
+  width: 100%;
+}
+
 @media (max-width: $screen-sm) {
-  .xs-full-width {
+  .xs-full-width-button {
     &.button-container {
       margin-bottom: 20px;
       width: 100%;

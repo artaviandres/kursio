@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Trans, useTranslation } from "react-i18next";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Rating } from 'semantic-ui-react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Header from '../presentationals/Header';
 import ProfileInfoSidebar from '../presentationals/ProfileInfoSidebar';
 import Text from '../presentationals/Text';
 import SocialMediaIcon from '../presentationals/SocialMediaIcon';
 import CourseCard from '../presentationals/CourseCard';
+import ProfileTabs from '../presentationals/ProfileTabs';
 import Footer from '../presentationals/Footer';
-import '../../styles/teacher-profile.scss';
+import '../../styles/user-profile.scss';
+import '../../styles/button.scss';
+import '../../styles/layout.scss';
+import '../../styles/icons.scss';
 
 //img
 import UserPicture from '../../assets/img/profilepicture.jpg';
@@ -17,7 +20,7 @@ import ReactBg from '../../assets/img/logo-og.png';
 import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
 
-export default function TeacherProfile() {
+export default function UserProfile() {
   const { i18n, t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedModal, setSelectedModal] = useState('');
@@ -30,7 +33,7 @@ export default function TeacherProfile() {
     setModalOpen(true);
     setSelectedModal('login')
   };
-  
+
   const openSignUp = () => {
     setModalOpen(true);
     setSelectedModal('signup')
@@ -38,10 +41,10 @@ export default function TeacherProfile() {
 
   return (
     <React.Fragment>
-      <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()}  />
-      <Grid fluid className="teacher-container">
+      <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()} />
+      <Grid fluid className="profile-container">
         <Row className="top-margin">
-        <ProfileInfoSidebar
+          <ProfileInfoSidebar
             rating={{
               rating: 4,
               reviews: 100
@@ -49,7 +52,7 @@ export default function TeacherProfile() {
             profile={{
               name:"Andrés Artavia",
               ocupation:"Software Engineer",
-              isTeacherProfile:true,
+              isTeacherProfile:false,
               UserPicture : UserPicture
 
             }} 
@@ -67,7 +70,7 @@ export default function TeacherProfile() {
                 </Col>
               </Row>
               <Row>
-                <Text size="24px" type="thin" margin="0">About Me</Text>
+                <Text size="24px" type="thin" margin="0">Bio</Text>
               </Row>
               <Row className="row-container">
                 <p className="bio-text">
@@ -75,9 +78,9 @@ export default function TeacherProfile() {
                 </p>
               </Row>
               <Row>
-                <Text size="24px" type="thin" margin="0 0 20px 0">Teacher Courses</Text>
+                <Text size="24px" type="thin" margin="0 0 20px 0">Courses</Text>
               </Row>
-              <Row className="row-container row-courses">
+              <Row className="row-container row-courses divission-border cards-wrapper">
                 <CourseCard
                   title="React Basics"
                   category="Development"
@@ -86,6 +89,8 @@ export default function TeacherProfile() {
                   price="$55"
                   image={ReactBg}
                   description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
+                  type="userProfile"
+                  views="800"
                 />
                 <CourseCard
                   title="VueJS Basics"
@@ -95,6 +100,8 @@ export default function TeacherProfile() {
                   price="$95"
                   image={VueBg}
                   description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+                  type="userProfile"
+                  views="800"
                 />
                 <CourseCard
                   title="Baking some amazing Cookies!"
@@ -104,11 +111,17 @@ export default function TeacherProfile() {
                   price="$25"
                   image={CookiesBg}
                   description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+                  type="userProfile"
+                  views="800"
                 />
               </Row>
             </Grid>
+            <Grid fluid style={{ paddingBottom: "50px" }}>
+              <ProfileTabs />
+            </Grid>
           </Col>
         </Row>
+
       </Grid>
       <Footer />
     </React.Fragment>

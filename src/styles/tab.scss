@@ -1,0 +1,42 @@
+@import './variables.scss';
+
+.general-tabs {
+    .ui.tabular.menu {
+        border: none;
+        .item {
+            background-color: #f0f4fa;
+            border: 0!important;
+            border-top: 3px solid #f0f4fa!important;
+            border-radius: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 15px;
+            font-weight: 600;
+            color: #273044;
+            padding: 16px 10px 20px;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .active.item {
+            border-top-color: #385bce!important;
+            background-color: #fff;
+            border-radius: 0 !important;
+            color: #273044;
+        }
+    }
+    
+    &.profile-tabs {
+        .menu {
+            .item {
+                width: 25%;
+            }
+        }
+    }
+    
+    .ui.tabular.menu+.attached:not(.top).segment {
+        border: none;
+        padding: 50px 0 0 0;
+    }
+}

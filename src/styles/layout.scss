@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+.margin-bottom-short {
+    margin-bottom: 15px;
+}
+
+.margin-top-short {
+    margin-top: 15px;
+}
+
+.margin-left-short {
+    margin-left: 15px;
+}
+
+.margin-right-short {
+    margin-right: 15px;
+}
+
+.divission-border {
+    padding-bottom: 35px !important;
+    margin-bottom: 65px !important;
+    border-bottom: $category-border !important;
+}
