@@ -2,7 +2,7 @@ import React from 'react';
 import { Trans, useTranslation } from "react-i18next";
 import { FaSearch, FaBars } from "react-icons/fa";
 import '../../styles/search-bar.scss';
-import { STYLES } from '../../const';
+import STYLES from '../../styles/variables.scss';
 
 export default function SearchBar() {
   const { t } = useTranslation();
