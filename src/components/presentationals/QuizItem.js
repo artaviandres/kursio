@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
-import { STYLES }from "../../const";
+import STYLES from '../../styles/variables.scss';
 import '../../styles/button.scss';
 
 export default function QuizItem({ courseUrl, quizUrl, quizStatus, quizPercentage }) {
@@ -19,8 +19,8 @@ export default function QuizItem({ courseUrl, quizUrl, quizStatus, quizPercentag
             </div>
             <div className="stm-lms-user-quiz__status">
                 {quizStatus === "passed" ?
-                    <div className="status passed"><FaCheckCircle className="icon-text-right" color={STYLES["$secondary-color"]} />Passed</div>
-                    : <div className="status passed"><FaTimesCircle className="icon-text-right" color={STYLES["$rose-color"]} />Failed</div>
+                    <div className="status passed"><FaCheckCircle className="icon-text-right" color={STYLES["secondary-color"]} />Passed</div>
+                    : <div className="status passed"><FaTimesCircle className="icon-text-right" color={STYLES["rose-color"]} />Failed</div>
                 }
             </div>
         </div>

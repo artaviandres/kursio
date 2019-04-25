@@ -16,7 +16,7 @@ export default function SearchBar() {
         <input type="text" placeholder={t('search_bar_placeholder')} />
       </div>
       <div className="search-bar-button">
-        <FaSearch color={STYLES["$white"]} size={18} />
+        <FaSearch color={STYLES["white"]} size={18} />
       </div>
     </div>
   );
