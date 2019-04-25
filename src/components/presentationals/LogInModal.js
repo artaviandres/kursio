@@ -10,6 +10,7 @@ import SocialMediaIcon from './SocialMediaIcon';
 import '../../styles/log-in-modal.scss';
 
 import { setCaptchaValidation } from '../../store/actions/modals';
+import { STYLES } from '../../const';
 
 function LogInModal({ setCaptchaValidationStatus }) {
   const changeCaptcha = (response) => {
@@ -34,7 +35,7 @@ function LogInModal({ setCaptchaValidationStatus }) {
           <Checkbox label="Remember Me" />
         </Col>
         <Col md={6} xs={12} className="remember-and-button-col">
-          <Button text="Log In" bgColor="#19c895" color="#fff" />
+          <Button text="Log In" bgColor={STYLES["$footer-link-color"]} color={STYLES["$white"]} />
         </Col>
       </Row>
       <Row>

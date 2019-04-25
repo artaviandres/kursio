@@ -11,6 +11,7 @@ import '../../styles/certificates.scss';
 //img
 import Certificate from '../../assets/img/certificate.pdf';
 import UserPicture from '../../assets/img/profilepicture.jpg';
+import { STYLES } from '../../const';
 
 export default function TeacherProfile() {
   const { i18n, t } = useTranslation();
@@ -49,7 +50,7 @@ export default function TeacherProfile() {
             <Grid fluid>
               <Row className="row-container">
                 <Col md={12} className="row-container-title">
-                  <Text size="32px" type="thin" margin="0" color="#273044">My Certificates</Text>
+                  <Text size="32px" type="thin" margin="0" color={STYLES["$footer-title-color"]}>My Certificates</Text>
                 </Col>
               </Row>
               {certificatesDummy.map((certificate) => <CertificatesItem course={certificate.course} certificate={certificate.certificatePdf} />)}
