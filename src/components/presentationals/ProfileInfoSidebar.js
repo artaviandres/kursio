@@ -21,12 +21,21 @@ export default function ProfileInfoSidebar({ rating, profile }) {
         <Text size="14px" type="bold" margin="0 0 0 10px">{rating.rating} / 5</Text>
       </div>
       {!profile.isTeacherProfile ?
-        <div>
+        <div className="personal-info-cta-container">
           <Text size="13px" type="light" margin="5px 0 0 0" color="#ccc">{rating.rating} Reviews</Text>
           <Button classList="button-secondary-color margin-top-short margin-bottom-short" color="#fff" text="My Messages" />
-          <a href="#" className="margin-bottom-short"><Text size="13px" type="light" margin="5px 0 0 0" color="#777"><FaBullhorn className="icon-text-right" size="18" />Create Announcement</Text></a>
-          <a href="#" className="margin-bottom-short"><Text size="13px" type="light" margin="5px 0 0 0" color="#777"><FaCertificate className="icon-text-right" size="18" />My certificates</Text></a>
-          <a href="#" className="margin-bottom-short"><Text size="13px" type="light" margin="5px 0 0 0" color="#777"><FaCog className="icon-text-right" size="18" />Edit profile</Text></a>
+          <a href="#" className="personal-info-link">
+            <FaBullhorn className="icon-text-right" size="18" />
+            <Text size="13px" type="light">Create Announcement</Text>
+          </a>
+          <a href="#" className="personal-info-link">
+            <FaCertificate className="icon-text-right" size="18" />
+            <Text size="13px" type="light">My certificates</Text>
+          </a>
+          <a href="#" className="personal-info-link">
+            <FaCog className="icon-text-right" size="18" />
+            <Text size="13px" type="light">Edit profile</Text>
+          </a>
         </div>
         : null}
     </Col>
