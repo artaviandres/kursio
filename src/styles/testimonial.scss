@@ -1,0 +1,19 @@
+@import './variables.scss';
+
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .ui .content {
+    .meta {
+      margin-bottom: 8px;
+    }
+    .full-story-link {
+      &:hover {
+        color: $secondary-color !important;
+      }
+    }
+  }
+}

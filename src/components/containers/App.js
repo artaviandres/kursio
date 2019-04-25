@@ -3,7 +3,7 @@ import { Trans, useTranslation } from "react-i18next";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FaRegLightbulb } from "react-icons/fa";
 import { connect } from 'react-redux';
-import { Tab } from 'semantic-ui-react'
+import { Tab } from 'semantic-ui-react';
 import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
 import HeaderCarousel from '../presentationals/HeaderCarousel';
@@ -12,11 +12,13 @@ import SignUpModal from '../presentationals/SignUpModal';
 import Modal from '../presentationals/Modal';
 import CourseCard from '../presentationals/CourseCard';
 import Text from '../presentationals/Text';
+import Testimonial from '../presentationals/Testimonial';
 import Footer from '../presentationals/Footer';
 
 import '../../styles/app.scss';
 
 //img
+import UserPicture from '../../assets/img/profilepicture.jpg';
 import ReactBg from '../../assets/img/logo-og.png';
 import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
@@ -82,7 +84,31 @@ function App({ logInModalStatus, signUpModalStatus }) {
       icon: <FaRegLightbulb size={22} />,
       text_key: 'category_theatre'
     },
-  ]
+  ];
+  
+  const dummyTestimonials = [
+    {
+      picture: UserPicture,
+      name: 'Andrés Artavia',
+      position: 'Software Engineer',
+      quote: 'Kursio has helped me develop myself as a professional, learn new things, keep myself up-to-date with the amazing world of the technology.',
+      hasStory: false
+    },
+    {
+      picture: UserPicture,
+      name: 'Andrés Artavia',
+      position: 'Student',
+      quote: 'Kursio has helped me develop myself as a professional, learn new things, keep myself up-to-date with the amazing world of the technology.',
+      hasStory: true
+    },
+    {
+      picture: UserPicture,
+      name: 'Andrés Artavia',
+      position: 'Software Engineer',
+      quote: 'Kursio has helped me develop myself as a professional, learn new things, keep myself up-to-date with the amazing world of the technology.',
+      hasStory: false
+    },
+  ];
 
   return (
     <React.Fragment>
@@ -173,25 +199,43 @@ function App({ logInModalStatus, signUpModalStatus }) {
             description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
           />
         </Row>
-        <Row>
-          <Col md={12} className="subscribe-container">
-            <Grid className="subscribe-content">
-              <Row style={{ height: '100%' }}>
-                <Col md={6} xs={12} className="subscribe-panel">
-                  <h3>Subscribe to our newsletter</h3>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words</p>
-                </Col>
-                <Col md={6} xs={12} className="subscribe-panel">
-                  <h1>
-                    Your E-mail address
-                  </h1>
-                </Col>
-              </Row>
-            </Grid>
+      </Grid>
+      <Row>
+        <Col md={12} className="subscribe-container">
+          <Grid className="subscribe-content">
+            <Row style={{ height: '100%' }}>
+              <Col md={6} xs={12} className="subscribe-panel">
+                <h3>Subscribe to our newsletter</h3>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words</p>
+              </Col>
+              <Col md={6} xs={12} className="subscribe-panel">
+                <h1>
+                  Your E-mail address
+                </h1>
+              </Col>
+            </Row>
+          </Grid>
+        </Col>
+      </Row>
+      <Grid fluid className="app-container">
+        <Row between="md" className="row-container section-title">
+          <Col xs={12}>
+            <Text size="35px" type="thin" margin="0">Our Customers</Text>
           </Col>
         </Row>
+        <Row className="testimonials-container">
+          {dummyTestimonials.map((testimonial) => (
+            <Testimonial
+              name={testimonial.name}
+              picture={testimonial.picture}
+              position={testimonial.position}
+              quote={testimonial.quote}
+              hasStory={testimonial.hasStory}
+            />
+          ))}
+        </Row>
       </Grid>
-      <Footer margin="195px 0 0 0" />
+      <Footer />
       {logInModalStatus || signUpModalStatus ?
         <Modal width="40%" height="70%">
           <Tab menu={{ secondary: true, pointing: true }} panes={modalPanes} className="modal-tab" />
