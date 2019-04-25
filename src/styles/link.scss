@@ -1,14 +1,30 @@
 @import './variables.scss';
+
 .green-url {
+    color:$secondary-color;
+    &:hover {
+        color:$secondary-color;
+    }
+}
+
+.dark-url {
+    color:$primary-color;
+    &:hover {
+        color:$primary-color;
+    }
+}
+
+.green-url-hover {
     color:initial;
     &:hover {
+        color:$secondary-color;
         p {
             color:$secondary-color;
         }
     }
 }
 
-.dark-url {
+.dark-url-hover {
     color:initial;
     &:hover {
         color:$primary-color;

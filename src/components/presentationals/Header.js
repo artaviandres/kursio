@@ -7,6 +7,7 @@ import Dropdown from './Dropdown';
 import SearchBar from './SearchBar';
 import Button from './Button';
 import '../../styles/header.scss';
+import STYLES from '../../styles/variables.scss';
 
 import { setLogInModal, setSignUpModal } from '../../store/actions/modals';
 
@@ -44,12 +45,12 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
                 <Col md={3} className="bottom-header-right">
                   <div className="personal-info-container">
                     <a onClick={() => setLogInModalStatus(true)}>
-                      <FaRegUser color="white" />
+                      <FaRegUser color={STYLES["white"]} />
                       <span><Trans i18nKey="log_in_text" /></span>
                     </a>
-                    <Button text={t('sign_up_text')} bgColor="#19c895" color="#fff" onClick={() => setSignUpModalStatus(true)} />
+                    <Button text={t('sign_up_text')} bgColor={STYLES["footer-link-color"]} color={STYLES["white"]} onClick={() => setSignUpModalStatus(true)} />
                     <div className="personal-info-bookmark">
-                      <FaRegBookmark color="#19c895" size={28} />
+                      <FaRegBookmark color={STYLES["footer-link-color"]} size={28} />
                     </div>
                   </div>
                 </Col>

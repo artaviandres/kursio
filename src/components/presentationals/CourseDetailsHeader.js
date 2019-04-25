@@ -17,7 +17,7 @@ export default function CourseDetailsHeader({ teacher, category, rating }) {
                 <img style={{ float: "left", margin: "0 5px 0 0" }} src={teacher.image} alt="teacher image" />
                 <div style={{ float: "left" }}>
                     <Text size="14px" type="thin" margin="0">Teacher:</Text>
-                    <a className="dark-url" href="#teacher">
+                    <a className="dark-url-hover" href="#teacher">
                         <Text size="16px" type="regular" margin="0">{teacher.name}</Text>
                     </a>
                 </div>
@@ -27,7 +27,7 @@ export default function CourseDetailsHeader({ teacher, category, rating }) {
                 <FaRegBookmark size="40" className="icon-blue" style={{ float: "left" }} />
                 <div style={{ float: 'left' }}>
                     <Text size="14px" type="thin" margin="0">Category:</Text>
-                    <a className="dark-url" href={category.url}>
+                    <a className="dark-url-hover" href={category.url}>
                         <Text size="16px" type="regular" margin="0">{category.name}</Text>
                     </a>
                 </div>

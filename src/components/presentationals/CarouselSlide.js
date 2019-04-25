@@ -12,6 +12,7 @@ import { FaSignal, FaListUl, FaRegClock } from "react-icons/fa";
 import '../../styles/header-carousel.scss';
 import '../../styles/icons.scss';
 import '../../styles/link.scss';
+import STYLES from '../../styles/variables.scss';
 
 export default function CarouselSlide({ image, teacher, category, rating, isCourseAdded, course }) {
 
@@ -21,7 +22,7 @@ export default function CarouselSlide({ image, teacher, category, rating, isCour
             <div className="slide-information">
                 <CourseDetailsHeader teacher={teacher} category={category} rating={rating}/>
                 <Row className="text-align-left">
-                    <a className="green-url" href={course.url}>
+                    <a className="green-url-hover" href={course.url}>
                         <Text size="32px" type="thin" margin="0">{course.name}</Text>
                     </a>
                 </Row>
@@ -31,7 +32,7 @@ export default function CarouselSlide({ image, teacher, category, rating, isCour
                     <Col><Text size="16px" type="regular" margin="0"><FaRegClock className="icon-blue" />6 Hours</Text></Col>
                 </Row>
                 <Row className="slide-button-section" style={{marginBottom:0}}>
-                    <Button color="#fff" text="Start Course" classList="button-rounded-md animation-hover button-secondary-color xs-full-width-button"
+                    <Button color={STYLES["white"]} text="Start Course" classList="button-rounded-md animation-hover button-secondary-color xs-full-width-button"
                         onClick={() => {
                             // start course logic
                             console.log('start course')

@@ -9,6 +9,7 @@ import '../../styles/profile-info-sidebar.scss';
 import '../../styles/button.scss';
 import '../../styles/layout.scss';
 import '../../styles/icons.scss';
+import STYLES from '../../styles/variables.scss';
 
 export default function ProfileInfoSidebar({ rating, profile }) {
   return (
@@ -22,8 +23,8 @@ export default function ProfileInfoSidebar({ rating, profile }) {
       </div>
       {!profile.isTeacherProfile ?
         <div className="personal-info-cta-container">
-          <Text size="13px" type="light" margin="5px 0 0 0" color="#ccc">{rating.rating} Reviews</Text>
-          <Button classList="button-secondary-color margin-top-short margin-bottom-short" color="#fff" text="My Messages" />
+          <Text size="13px" type="light" margin="5px 0 0 0" color={STYLES["footer-top-border"]}>{rating.rating} Reviews</Text>
+          <Button classList="button-secondary-color margin-top-short margin-bottom-short" color={STYLES["white"]} text="My Messages" />
           <a href="#" className="personal-info-link">
             <FaBullhorn className="icon-text-right" size="18" />
             <Text size="13px" type="light">Create Announcement</Text>

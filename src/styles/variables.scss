@@ -35,3 +35,37 @@ $screen-sm: 576px;
 $screen-md: 768px;
 $screen-lg: 992px;
 $screen-xlg:1200px;
+
+:export {
+    primary-gradient:$primary-gradient;
+    primary-color:$primary-color;
+    secondary-color:$secondary-color;
+
+    blue-secondary:$blue-secondary;
+    rose-color:$rose-color;
+
+    primary-font-thin:$primary-font-thin;
+    primary-font-light:$primary-font-light;
+    primary-font-regular:$primary-font-regular;
+    primary-font-bold:$primary-font-bold;
+
+    top-header-font-color:$top-header-font-color;
+    top-header-border-bottom:$top-header-border-bottom;
+
+    bottom-header-category-gray-bg:$bottom-header-category-gray-bg;
+    bottom-header-category-gray-text:$bottom-header-category-gray-text;
+
+    category-bg:$category-bg;
+    category-border:$category-border;
+    category-font-color:$category-font-color;
+
+    footer-top-border:$footer-top-border;
+    footer-title-color:$footer-title-color;
+    footer-p-color:$footer-p-color;
+    footer-link-color:$footer-link-color;
+
+    modal-tab-bg-color:$modal-tab-bg-color;
+    modal-tab-bg-color-active:$modal-tab-bg-color-active;
+    modal-input-label-color:$modal-input-label-color;
+    modal-login-bg-color:$modal-login-bg-color;
+  }

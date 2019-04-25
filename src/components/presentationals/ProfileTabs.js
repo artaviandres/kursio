@@ -3,13 +3,15 @@ import { Tab } from 'semantic-ui-react';
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Rating } from 'semantic-ui-react';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaCog, FaBullhorn, FaCertificate } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaCog, FaBullhorn, FaCertificate,FaCheckCircle } from "react-icons/fa";
 import Text from '../presentationals/Text';
 import SocialMediaIcon from '../presentationals/SocialMediaIcon';
 import CourseCard from '../presentationals/CourseCard';
+import QuizItem from '../presentationals/QuizItem';
 
 import '../../styles/layout.scss';
 import '../../styles/tab.scss';
+import '../../styles/icons.scss';
 import '../../styles/course-card.scss';
 
 //img
@@ -68,7 +70,41 @@ const panes = [
       </Row>
     </Tab.Pane>
   },
-  { menuItem: 'My Quizzes', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
+  {
+    menuItem: 'My Quizzes', render: () => <Tab.Pane>
+      <div>
+        <div className="stm-lms-user-quiz__head heading_font">
+          <div className="stm-lms-user-quiz__head_title">Course</div>
+          <div className="stm-lms-user-quiz__head_quiz">Quiz</div>
+          <div className="stm-lms-user-quiz__head_status">Status</div>
+        </div>
+        <QuizItem
+        courseUrl="https://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/"
+        quizUrl="ttps://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/1073-755"
+        quizStatus="passed"
+        quizPercentage="80"
+        />
+        <QuizItem
+        courseUrl="https://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/"
+        quizUrl="ttps://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/1073-755"
+        quizStatus="failed"
+        quizPercentage="60"
+        />
+        <QuizItem
+        courseUrl="https://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/"
+        quizUrl="ttps://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/1073-755"
+        quizStatus="passed"
+        quizPercentage="80"
+        />
+        <QuizItem
+        courseUrl="https://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/"
+        quizUrl="ttps://masterstudy.stylemixthemes.com/course-hub/courses/how-to-be-a-dj-make-electronic-music/1073-755"
+        quizStatus="passed"
+        quizPercentage="80"
+        />
+      </div>
+    </Tab.Pane>
+  },
   { menuItem: 'My Orders', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
   { menuItem: 'My Memberships', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
 ]
