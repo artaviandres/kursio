@@ -1,0 +1,28 @@
+@import './variables.scss';
+
+.home-svg-block-container {
+  width: 100%;
+  padding: 60px 15px 60px 0;
+  border: 1px solid $home-svg-blocks-border;
+
+  .home-svg-block-image {
+    display: flex;
+    align-items: center;
+    img {
+      width: 300px;
+    }
+  }
+
+  .home-svg-block-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    p {
+      font-family: $primary-font-thin;
+      font-size: 16px;
+      text-align: right;
+    }
+  }
+}
