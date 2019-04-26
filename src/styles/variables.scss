@@ -30,6 +30,7 @@ $modal-tab-bg-color: #f0f4fa;
 $modal-tab-bg-color-active: #fff;
 $modal-input-label-color: #385bce;
 $modal-login-bg-color: #385bce;
+$white: #fff;
 
 $home-svg-blocks-border: #e0e0e0;
 $home-svg-blocks-button-color: #fff;
@@ -73,6 +74,7 @@ $screen-xlg:1200px;
     modal-tab-bg-color-active:$modal-tab-bg-color-active;
     modal-input-label-color:$modal-input-label-color;
     modal-login-bg-color:$modal-login-bg-color;
+    white: $white;
 
     home-svg-blocks-border:$home-svg-blocks-border;
     home-svg-blocks-button-color:$home-svg-blocks-button-color;

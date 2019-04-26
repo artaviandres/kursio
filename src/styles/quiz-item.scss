@@ -1,0 +1,65 @@
+@import './variables.scss';
+// Quiz tab
+.stm-lms-user-quiz__head {
+    display: flex;
+    padding: 20px;
+    margin: 0 0 10px;
+    background: $category-bg;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.stm-lms-user-quiz__head_title {
+    width: 35%;
+    padding-right: 15px;
+}
+.stm-lms-user-quiz__head_quiz {
+    width: 20%;
+    padding-right: 15px;
+}
+
+.stm-lms-user-quiz {
+    display: flex;
+    padding: 20px;
+    border: $category-border;
+    margin: 0 0 10px;
+    align-items: center;
+    .title {
+        width: 35%;
+        margin: 0;
+        padding-right: 15px;
+    }
+    .name {
+        width: 20%;
+        padding-right: 15px;
+    }
+    .progress {
+        position: relative;
+        top: 1px;
+        padding-right: 50px;
+        width: 30%;
+        .progress-status {
+            position: absolute;
+            right: 0;
+            top: -8px;
+        }
+        .filled {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background-color: $primary-color;
+            z-index: 20;
+        }
+    }
+    .progress_bar {
+        position: relative;
+        height: 5px;
+        background-color: #e0e0e0;
+    }
+    .status {
+        width: 15%;
+        padding-left: 15px;
+        text-align: right;
+    }
+}

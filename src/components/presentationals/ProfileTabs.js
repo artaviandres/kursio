@@ -1,13 +1,12 @@
 import React from 'react';
 import { Tab } from 'semantic-ui-react';
 
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Rating } from 'semantic-ui-react';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaCog, FaBullhorn, FaCertificate,FaCheckCircle } from "react-icons/fa";
-import Text from '../presentationals/Text';
-import SocialMediaIcon from '../presentationals/SocialMediaIcon';
+import { Row } from 'react-flexbox-grid';
 import CourseCard from '../presentationals/CourseCard';
+import Text from '../presentationals/Text';
 import QuizItem from '../presentationals/QuizItem';
+import OrderItem from '../presentationals/OrderItem';
+
 
 import '../../styles/layout.scss';
 import '../../styles/tab.scss';
@@ -72,6 +71,7 @@ const panes = [
   },
   {
     menuItem: 'My Quizzes', render: () => <Tab.Pane>
+      <Text size="22px" type="thin" margin="0 0 20px 0">My Quizzes</Text>
       <div>
         <div className="stm-lms-user-quiz__head heading_font">
           <div className="stm-lms-user-quiz__head_title">Course</div>
@@ -105,8 +105,33 @@ const panes = [
       </div>
     </Tab.Pane>
   },
-  { menuItem: 'My Orders', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
-  { menuItem: 'My Memberships', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+  { menuItem: 'My Orders', render: () => <Tab.Pane>
+    <Text size="22px" type="thin" margin="0 0 20px 0">My Orders</Text>
+    <OrderItem
+    id="313915556450825cb9429a9838a"
+    date="April 19, 2019 3:38 am"
+    status="Pending"
+    image="https://masterstudy.stylemixthemes.com/course-hub/wp-content/uploads/sites/10/2018/08/james-connolly-540573-unsplash-min-300x225.jpg"
+    categories="Exercise, Skiing"
+    course={{
+      title:"Skiing basic Instruction and Videos",
+      url:"https://masterstudy.stylemixthemes.com/course-hub/courses/skiing-basic-instruction-and-videos/",
+      price:"46"
+    }}
+    />
+    <OrderItem
+    id="313915556450825cb9429a9234a"
+    date="April 24, 2019 3:24 am"
+    status="Pending"
+    image="https://masterstudy.stylemixthemes.com/course-hub/wp-content/uploads/sites/10/2018/08/james-connolly-540573-unsplash-min-300x225.jpg"
+    categories="Exercise, Skiing"
+    course={{
+      title:"Skiing basic Instruction and Videos",
+      url:"https://masterstudy.stylemixthemes.com/course-hub/courses/skiing-basic-instruction-and-videos/",
+      price:"46"
+    }}
+    />
+  </Tab.Pane> },
 ]
 
 const ProfileTabs = () => <Tab className="general-tabs profile-tabs" grid={{ paneWidth: 12, tabWidth: 12 }} panes={panes} />

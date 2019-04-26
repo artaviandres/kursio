@@ -1,0 +1,77 @@
+//Orders Tab
+.stm-lms-user-order {
+    display: flex;
+    position: relative;
+    padding: 30px;
+    margin: 0 0 10px;
+    border: 1px solid #e1e2e4;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-color: grey;
+        width: 100%;
+    }
+
+    >* {
+        padding: 0 15px;
+    }
+    .title {
+        color: #385bce;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    .status {
+        padding-right: 0;
+    }
+    .status.pending {
+        color: #aaa;
+    }
+
+    table td, table th {
+        padding: 5px 10px;
+    }
+
+    .advanced table tr td {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .advanced table tr td.image {
+        border-bottom: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        width: 155px;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    .advanced {
+        width: 100%;
+        padding: 20px 0 0;
+    }
+    .advanced table tr td.name span {
+        display: block;
+        font-size: 13px;
+        color: #aaa;
+    }
+    .advanced table tr td.name a {
+        color: #273044;
+        font-weight: 700;
+    }
+
+    .advanced table tr td.price {
+        color: #aaa;
+        padding-right: 0;
+        text-align: right;
+    }
+
+    .advanced table tr td.price strong {
+        display: block;
+        color: #273044;
+    }
+}
