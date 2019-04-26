@@ -1,9 +1,9 @@
 @import './variables.scss';
 
 .green-url {
-    color:$secondary-color;
+    color:$primary-color;
     &:hover {
-        color:$secondary-color;
+        color:$primary-color;
     }
 }
 
@@ -17,9 +17,9 @@
 .green-url-hover {
     color:initial;
     &:hover {
-        color:$secondary-color;
+        color:$primary-color;
         p {
-            color:$secondary-color;
+            color:$primary-color;
         }
     }
 }
