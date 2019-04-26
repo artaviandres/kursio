@@ -24,7 +24,7 @@ export default function ProfileInfoSidebar({ rating, profile }) {
       {!profile.isTeacherProfile ?
         <div className="personal-info-cta-container">
           <Text size="13px" type="light" margin="5px 0 0 0" color={STYLES["footer-top-border"]}>{rating.rating} Reviews</Text>
-          <Button classList="button-secondary-color margin-top-short margin-bottom-short" color={STYLES["white"]} text="My Messages" />
+          <Button classList="button-primary-color margin-top-short margin-bottom-short" color={STYLES["white"]} text="My Messages" />
           <a href="#" className="personal-info-link">
             <FaBullhorn className="icon-text-right" size="18" />
             <Text size="13px" type="light">Create Announcement</Text>

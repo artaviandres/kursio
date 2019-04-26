@@ -29,7 +29,7 @@ export default function CourseCard({ title, category, rating, numberOfRatings, p
       case "userProfileProgress":
         return (
           <Card.Content className="buttons-section">
-            <Button text="continue" color={STYLES["white"]} classList="animation-hover margin-bottom-short button-secondary-color button-not-rounded full-width-button" />
+            <Button text="continue" color={STYLES["white"]} classList="animation-hover margin-bottom-short button-primary-color button-not-rounded full-width-button" />
             <Text color={STYLES["footer-top-border"]}>Started March 22, 2019</Text>
           </Card.Content>
         )
