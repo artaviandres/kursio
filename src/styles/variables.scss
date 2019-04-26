@@ -1,6 +1,7 @@
 $primary-gradient: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
-$primary-color: #2f4371;
+$primary-color: #536dfe;
 $secondary-color: #19c895;
+$title-primary: rgba(0,0,0,.87);
 
 $blue-secondary: #385bce;
 $rose-color: #ff1f59;
@@ -23,12 +24,15 @@ $category-font-color: rgb(58, 65, 82);
 $footer-top-border: #ccc;
 $footer-title-color: #273044;
 $footer-p-color: #aaaaaa;
-$footer-link-color: #19c895;
+$footer-link-color: #536dfe;
 
 $modal-tab-bg-color: #f0f4fa;
 $modal-tab-bg-color-active: #fff;
 $modal-input-label-color: #385bce;
 $modal-login-bg-color: #385bce;
+
+$home-svg-blocks-border: #e0e0e0;
+$home-svg-blocks-button-color: #fff;
 
 //screen resolutions, responsiveness
 $screen-sm: 576px;
@@ -40,6 +44,7 @@ $screen-xlg:1200px;
     primary-gradient:$primary-gradient;
     primary-color:$primary-color;
     secondary-color:$secondary-color;
+    title-primary:$title-primary;
 
     blue-secondary:$blue-secondary;
     rose-color:$rose-color;
@@ -68,4 +73,7 @@ $screen-xlg:1200px;
     modal-tab-bg-color-active:$modal-tab-bg-color-active;
     modal-input-label-color:$modal-input-label-color;
     modal-login-bg-color:$modal-login-bg-color;
+
+    home-svg-blocks-border:$home-svg-blocks-border;
+    home-svg-blocks-button-color:$home-svg-blocks-button-color;
   }

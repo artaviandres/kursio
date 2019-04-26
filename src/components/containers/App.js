@@ -13,7 +13,9 @@ import Modal from '../presentationals/Modal';
 import CourseCard from '../presentationals/CourseCard';
 import Text from '../presentationals/Text';
 import Testimonial from '../presentationals/Testimonial';
+import HomeSvgBlock from '../presentationals/HomeSvgBlock';
 import Footer from '../presentationals/Footer';
+import Title from '../presentationals/Title';
 
 import '../../styles/app.scss';
 
@@ -22,6 +24,8 @@ import UserPicture from '../../assets/img/profilepicture.jpg';
 import ReactBg from '../../assets/img/logo-og.png';
 import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
+import Professor from '../../assets/img/professor.svg';
+import PeopleFun from '../../assets/img/people_fun.svg';
 
 function App({ logInModalStatus, signUpModalStatus }) {
   const { i18n, t } = useTranslation();
@@ -122,7 +126,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
         </Row>
         <Row between="md" className="row-container section-title">
           <Col xs={12}>
-            <Text size="35px" type="thin" margin="0">Recent Courses</Text>
+            <Title fontSize="42px">Recent Courses</Title>
           </Col>
         </Row>
         <Row className="row-container cards-wrapper">
@@ -220,7 +224,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
       <Grid fluid className="app-container">
         <Row between="md" className="row-container section-title">
           <Col xs={12}>
-            <Text size="35px" type="thin" margin="0">Our Customers</Text>
+            <Title fontSize="42px">Our Customers</Title>
           </Col>
         </Row>
         <Row className="testimonials-container">
@@ -233,6 +237,24 @@ function App({ logInModalStatus, signUpModalStatus }) {
               hasStory={testimonial.hasStory}
             />
           ))}
+        </Row>
+        <Row className="svgs-container">
+          <Col md={6} xs={12} className="svg-container">
+            <HomeSvgBlock
+              image={Professor}
+              title="Teach what you love."
+              text="Being a professor at Kursio, you can generate income from your home."
+              button="Become a Professor"
+            />
+          </Col>
+          <Col md={6} xs={12} className="svg-container">
+            <HomeSvgBlock
+              image={PeopleFun}
+              title="Get your company involved."
+              text="Here at Kursio, we believe in teamwork and sharing. So, we offer special Enterprise Prices."
+              button="Enterprise Prices"
+            />
+          </Col>
         </Row>
       </Grid>
       <Footer />
