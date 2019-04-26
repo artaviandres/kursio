@@ -16,6 +16,7 @@ import Testimonial from '../presentationals/Testimonial';
 import HomeSvgBlock from '../presentationals/HomeSvgBlock';
 import Footer from '../presentationals/Footer';
 import Title from '../presentationals/Title';
+import SubscribeNewsletter from '../presentationals/SubscribeNewsletter';
 
 import '../../styles/app.scss';
 
@@ -205,21 +206,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
         </Row>
       </Grid>
       <Row>
-        <Col md={12} className="subscribe-container">
-          <Grid className="subscribe-content">
-            <Row style={{ height: '100%' }}>
-              <Col md={6} xs={12} className="subscribe-panel">
-                <h3>Subscribe to our newsletter</h3>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words</p>
-              </Col>
-              <Col md={6} xs={12} className="subscribe-panel">
-                <h1>
-                  Your E-mail address
-                </h1>
-              </Col>
-            </Row>
-          </Grid>
-        </Col>
+        <SubscribeNewsletter />
       </Row>
       <Grid fluid className="app-container">
         <Row between="md" className="row-container section-title">
