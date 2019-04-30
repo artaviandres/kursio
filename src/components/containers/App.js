@@ -125,7 +125,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
         <Row >
           {categories.map(category => <Category key={category.text_key} icon={category.icon} text={t(category.text_key)} />)}
         </Row>
-        <Row between="md" className="row-container section-title">
+        <Row between="md" className="row-container section-title section-title-border ">
           <Col xs={12}>
             <Title fontSize="42px">Recent Courses</Title>
           </Col>
@@ -209,7 +209,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
         <SubscribeNewsletter />
       </Row>
       <Grid fluid className="app-container">
-        <Row between="md" className="row-container section-title">
+        <Row between="md" className="row-container section-title section-title-border">
           <Col xs={12}>
             <Title fontSize="42px">Our Customers</Title>
           </Col>
