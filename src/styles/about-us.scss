@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+
+
+@media (min-width: $screen-md) {
+    .about-container {
+        max-width: $screen-xlg !important;
+        padding:0 20px !important;
+        width: 100% !important;
+    }
+}

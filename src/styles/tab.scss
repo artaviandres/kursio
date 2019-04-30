@@ -34,6 +34,13 @@
             }
         }
     }
+    &.about-tabs {
+        .menu {
+            .item {
+                width: 50%;
+            }
+        }
+    }
     
     .ui.tabular.menu+.attached:not(.top).segment {
         border: none;
