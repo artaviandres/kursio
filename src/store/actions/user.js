@@ -9,7 +9,10 @@ export const getUserLogin = (username, password) => {
 
   axios.post(`${api.host}${api.login}`, userData)
     .then((res) => {
-      console.log(res);
+      return {
+        type: GET_USER_LOGIN,
+        payload: res,
+      }
     })
     .catch((err) => {
       toast.error('Wrong Credentials, please try again.', {
@@ -21,8 +24,4 @@ export const getUserLogin = (username, password) => {
         draggable: false,
       });
     })
-  return {
-    type: GET_USER_LOGIN,
-    payload: 'holi',
-  }
 }
