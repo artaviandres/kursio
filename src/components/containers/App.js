@@ -12,7 +12,6 @@ import SignUpModal from '../presentationals/SignUpModal';
 import Modal from '../presentationals/Modal';
 import CourseCard from '../presentationals/CourseCard';
 import Text from '../presentationals/Text';
-import Testimonial from '../presentationals/Testimonial';
 import HomeSvgBlock from '../presentationals/HomeSvgBlock';
 import Footer from '../presentationals/Footer';
 import Title from '../presentationals/Title';
@@ -21,12 +20,12 @@ import SubscribeNewsletter from '../presentationals/SubscribeNewsletter';
 import '../../styles/app.scss';
 
 //img
-import UserPicture from '../../assets/img/profilepicture.jpg';
 import ReactBg from '../../assets/img/logo-og.png';
 import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
 import Professor from '../../assets/img/professor.svg';
 import PeopleFun from '../../assets/img/people_fun.svg';
+import TestimonialsContainer from '../presentationals/TestimonialsContainer';
 
 function App({ logInModalStatus, signUpModalStatus }) {
   const { i18n, t } = useTranslation();
@@ -88,30 +87,6 @@ function App({ logInModalStatus, signUpModalStatus }) {
     {
       icon: <FaRegLightbulb size={22} />,
       text_key: 'category_theatre'
-    },
-  ];
-  
-  const dummyTestimonials = [
-    {
-      picture: UserPicture,
-      name: 'Andrés Artavia',
-      position: 'Software Engineer',
-      quote: 'Kursio has helped me develop myself as a professional, learn new things, keep myself up-to-date with the amazing world of the technology.',
-      hasStory: false
-    },
-    {
-      picture: UserPicture,
-      name: 'Andrés Artavia',
-      position: 'Student',
-      quote: 'Kursio has helped me develop myself as a professional, learn new things, keep myself up-to-date with the amazing world of the technology.',
-      hasStory: true
-    },
-    {
-      picture: UserPicture,
-      name: 'Andrés Artavia',
-      position: 'Software Engineer',
-      quote: 'Kursio has helped me develop myself as a professional, learn new things, keep myself up-to-date with the amazing world of the technology.',
-      hasStory: false
     },
   ];
 
@@ -214,17 +189,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
             <Title fontSize="42px">Our Customers</Title>
           </Col>
         </Row>
-        <Row className="testimonials-container">
-          {dummyTestimonials.map((testimonial) => (
-            <Testimonial
-              name={testimonial.name}
-              picture={testimonial.picture}
-              position={testimonial.position}
-              quote={testimonial.quote}
-              hasStory={testimonial.hasStory}
-            />
-          ))}
-        </Row>
+        <TestimonialsContainer />
         <Row className="svgs-container">
           <Col md={6} xs={12} className="svg-container">
             <HomeSvgBlock
