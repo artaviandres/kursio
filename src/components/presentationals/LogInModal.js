@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from './ModalInput';
 import ReCAPTCHA from "react-google-recaptcha";
 import { connect } from 'react-redux';
 import { Checkbox } from 'semantic-ui-react';
 import { Row, Col } from 'react-flexbox-grid';
+import { ToastContainer, toast } from 'react-toastify';
 import { FaFacebookF, FaTwitter, FaGoogle, FaVk } from "react-icons/fa";
 import Button from './Button';
 import SocialMediaIcon from './SocialMediaIcon';
 import '../../styles/log-in-modal.scss';
 
 import { setCaptchaValidation } from '../../store/actions/modals';
+import { getUserLogin } from '../../store/actions/user';
 import STYLES from '../../styles/variables.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
-function LogInModal({ setCaptchaValidationStatus }) {
+function LogInModal({ setCaptchaValidationStatus, getUserLoginFunc, captchaValidation }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   const changeCaptcha = (response) => {
     if (response) {
       setCaptchaValidationStatus(true);
     }
   }
+  const submitLogin = (e) => {
+    e.preventDefault();
+    if (captchaValidation) {
+      getUserLoginFunc(username, password);
+    } else {
+      toast.error('Please check the Re-Captcha before continuing.', {
+        position: "bottom-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+      });
+    }
+  }
   return (
-    <div className="log-in-modal-container">
-      <Input label="Username" placeholder="artaviandres" type="text" />
-      <Input label="Password" placeholder="Your password" type="password" />
+    <form className="log-in-modal-container" onSubmit={submitLogin}>
+      <Input label="Username" placeholder="artaviandres" type="text" onChange={(e) => setUsername(e.target.value)} required />
+      <Input label="Password" placeholder="Your password" type="password" onChange={(e) => setPassword(e.target.value)} required />
       <Row>
         <Col md={12} className="log-in-modal-recaptcha">
           <ReCAPTCHA
@@ -51,12 +72,28 @@ function LogInModal({ setCaptchaValidationStatus }) {
           <SocialMediaIcon icon={<FaTwitter size={18} />} margin="0 0 0 5px" link="https://www.facebook.com/artaviandres" width="20px" height="20px" />
         </Col>
       </Row>
-    </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable={false}
+        pauseOnHover
+      />
+    </form>
   )
 };
 
-const mapDispatchToProps = dispatch => ({
-  setCaptchaValidationStatus: (status) => dispatch(setCaptchaValidation(status)),
+const mapStateToProps = (state) => ({
+  captchaValidation: state.modalsReducer.captchaValidation ? state.modalsReducer.captchaValidation : false,
 });
 
-export default connect(null, mapDispatchToProps)(LogInModal);
+const mapDispatchToProps = dispatch => ({
+  setCaptchaValidationStatus: (status) => dispatch(setCaptchaValidation(status)),
+  getUserLoginFunc: (username, password) => dispatch(getUserLogin(username, password)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogInModal);

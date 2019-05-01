@@ -3,9 +3,12 @@ export const SET_SIGN_UP_MODAL = 'SET_SIGN_UP_MODAL';
 export const SET_CAPTCHA_VALIDATION = 'SET_CAPTCHA_VALIDATION'
 
 export const setLogInModal = (status) => {
-  return {
-    type: SET_LOG_IN_MODAL,
-    payload: status,
+  return function action(dispatch) {
+    dispatch(setCaptchaValidation(false));
+    dispatch({
+      type: SET_LOG_IN_MODAL,
+      payload: status,
+    })
   }
 }
 
@@ -17,8 +20,11 @@ export const setCaptchaValidation = (status) => {
 }
 
 export const setSignUpModal = (status) => {
-  return {
-    type: SET_SIGN_UP_MODAL,
-    payload: status,
+  return function action(dispatch) {
+    dispatch(setCaptchaValidation(false));
+    dispatch({
+      type: SET_SIGN_UP_MODAL,
+      payload: status,
+    })
   }
 }
