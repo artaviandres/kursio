@@ -1,2 +1,3 @@
 import * as modalsActions from './modals';
-export { modalsActions };
+import * as userActions from './user'
+export { modalsActions, userActions };
