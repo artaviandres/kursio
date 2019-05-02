@@ -53,35 +53,6 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
           </a>
         </Col>
         {isSearchOpen ? <div className="header-search">hola</div> : null}
-        {/* <Col md={11}>
-          <Grid fluid className="no-padding">
-            <Row start="md" className="top-header">
-              <Col md={4}>
-                <Dropdown options={languageOptions} changeLanguage={(val) => changeLanguage(val)} />
-              </Col>
-            </Row>
-            <Row start="md" className="bottom-header">
-              <Col md={3}>
-
-              </Col>
-              <Col md={6}>
-                <SearchBar />
-              </Col>
-              <Col md={3} className="bottom-header-right">
-                <div className="personal-info-container">
-                  <a onClick={() => setLogInModalStatus(true)}>
-                    <FaRegUser color={STYLES["white"]} />
-                    <span><Trans i18nKey="log_in_text" /></span>
-                  </a>
-                  <Button text={t('sign_up_text')} bgColor={STYLES["footer-link-color"]} color={STYLES["white"]} onClick={() => setSignUpModalStatus(true)} />
-                  <div className="personal-info-bookmark">
-                    <FaRegBookmark color={STYLES["footer-link-color"]} size={28} />
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Grid>
-        </Col> */}
       </Row>
     </Grid>
   )
