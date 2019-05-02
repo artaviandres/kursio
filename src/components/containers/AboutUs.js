@@ -73,9 +73,30 @@ export default function AboutUs() {
                     </Col>
                 </Row>
                 <Row className="section" style={{paddingTop:"0"}}>
-                    <Row between="md" className="row-container section-subtitle">
+                    <Col sm={12} between="md" className="row-container section-subtitle">
                         <Text size="32px" type="thin" margin="0" lineHeight="22px" color={STYLES["footer-title-color"]}>Certifications</Text>
-                    </Row>
+                    </Col>
+                    <Col sm={12} md={4}
+                    style={{textAlign:'center'}}>
+                        <img 
+                        style={{width:"100%"}}
+                        src="https://content.screencast.com/users/milloescobar/folders/Jing/media/4e9ab94c-ffb8-4d52-bc99-ecebed9d5647/00000016.png"/>
+                        <Text size="16px" type="regular" margin="30px 0 0 0" lineHeight="22px" color={STYLES["footer-title-color"]}>Google Certification</Text>
+                    </Col>
+                    <Col sm={12} md={4}
+                    style={{textAlign:'center'}}>
+                        <img 
+                        style={{width:"100%"}}
+                        src="https://content.screencast.com/users/milloescobar/folders/Jing/media/4e9ab94c-ffb8-4d52-bc99-ecebed9d5647/00000016.png"/>
+                        <Text size="16px" type="regular" margin="30px 0 0 0" lineHeight="22px" color={STYLES["footer-title-color"]}>Google Certification</Text>
+                    </Col>
+                    <Col sm={12} md={4}
+                    style={{textAlign:'center'}}>
+                        <img 
+                        style={{width:"100%"}}
+                        src="https://content.screencast.com/users/milloescobar/folders/Jing/media/4e9ab94c-ffb8-4d52-bc99-ecebed9d5647/00000016.png"/>
+                        <Text size="16px" type="regular" margin="30px 0 0 0" lineHeight="22px" color={STYLES["footer-title-color"]}>Google Certification</Text>
+                    </Col>
                 </Row>
             </Grid>
             <Footer />
