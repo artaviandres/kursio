@@ -21,12 +21,19 @@
     width: auto;
   }
 
+  &.button-rounded-lg {
+    border-radius: 25px;
+    padding: 0 30px;
+    width: auto;
+  }
+
   &.button-not-rounded {
     border-radius: 0;
   }
 
   &.button-primary-color {
-    background-color: $primary-color;
+    background-color: $primary-color !important;
+    color: $white !important;
   }
 
   &.animation-hover {

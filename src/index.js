@@ -6,6 +6,7 @@ import App from './components/containers/App';
 import TeacherProfile from './components/containers/TeacherProfile';
 import UserProfile from './components/containers/UserProfile';
 import Certificates from './components/containers/Certificates';
+import AboutUs from './components/containers/AboutUs';
 import store from './store/store';
 import './index.scss';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="/teacher" exact component={TeacherProfile} />
         <Route path="/profile" exact component={UserProfile} />
         <Route path="/certificates" exact component={Certificates} />
+        <Route path="/about" exact component={AboutUs} />
       </Switch>
     </BrowserRouter>
   </Provider>,

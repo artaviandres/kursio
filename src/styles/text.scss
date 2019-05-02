@@ -24,6 +24,13 @@
   text-align: right;
 }
 
+.primary-list {
+  padding-left: 18px;
+  color:$footer-title-color;
+  li {
+    line-height: 26px;
+  }
+}
 @media (min-width: $screen-sm) {
   .md-text-align-left {
     text-align: left;
