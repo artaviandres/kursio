@@ -94,7 +94,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
     <React.Fragment>
       <Header changeLanguage={(val) => changeLanguage(val)} />
       <div className="header-carousel">
-      <HeaderCarousel />
+        <HeaderCarousel />
       </div>
       <Grid fluid className="app-container">
         <Row >

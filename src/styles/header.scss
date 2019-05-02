@@ -1,55 +1,83 @@
 @import './variables.scss';
 
 .header-container {
-  background-color: $primary-color;
+  background-color: $header-background-color;
   font-family: $primary-font-thin;
-  // position: absolute;
-  width: 100vw;
+  height: 95px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+  position: fixed;
+  top: 0;
   left: 0;
+  z-index: 9999;
+  width: 100vw;
 
-  .top-header {
-    color: $top-header-font-color;
-    height: 50px;
-    border-bottom: 1px solid $top-header-border-bottom;
+  .header-content {
+    padding: 0 8px;
+    max-width: 1048px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-  }
+    height: 100%;
 
-  .bottom-header {
-    height: 100px;
-    display: flex;
-    align-items: center;
+    .header-logo {
+      img {
+        width: 150px;
+      }
+    }
 
-    .bottom-header-right {
-      right: 0;
-      .personal-info-container {
+    .header-links {
+      display: flex;
+      min-width: 650px;
+      justify-content: center;
+
+      a {
+        min-width: 150px;
+        padding: 0 3%;
         display: flex;
+        color: $header-link-color;
         align-items: center;
+        transition: color 0.3s ease;
+        cursor: pointer;
+        font-family: $primary-font-regular;
+        font-size: 16px;
+        border-right: 1px dashed black;
 
-        .personal-info-bookmark {
-          position: absolute;
-          right: 75px;
-          cursor: pointer;
+        &:hover {
+          color: $header-link-color-hover;
         }
-  
-        a {
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-          margin-right: 10px;
-  
-          span {
-            color: white;
-            margin-left: 5px;
-            font-size: 14px;
-            font-family: $primary-font-light;
+
+        &:nth-child(3) {
+          border-right: none;
+        }
+
+        svg {
+          margin-left: 5px;
+        }
+      }
+    }
+
+    .header-icons {
+      display: flex;
+      justify-content: flex-end;
+      a {
+        cursor: pointer;
+        margin-right: 10px;
+
+        &:nth-child(3) {
+          margin-right: 0;
+        }
+
+        svg {
+          color: $header-link-color;
+          margin-top: 10px;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $header-link-color-hover;
           }
         }
       }
     }
   }
-}
-
-.no-padding {
-  padding: 0;
 }
