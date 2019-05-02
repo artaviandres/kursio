@@ -11,6 +11,10 @@ $primary-font-light: MuseumCyrlLight, sans-serif;
 $primary-font-regular: MuseumCyrlRegular, sans-serif;
 $primary-font-bold: MuseumCyrlBold, sans-serif;
 
+$header-background-color: #fff;
+$header-link-color: #000;
+$header-link-color-hover: $primary-color;
+
 $top-header-font-color: rgba(255,255,255,.5);
 $top-header-border-bottom: rgba(255,255,255,.15);
 
@@ -60,6 +64,10 @@ $screen-xlg:1200px;
     primary-font-regular:$primary-font-regular;
     primary-font-bold:$primary-font-bold;
 
+    header-background-color:$header-background-color;
+    header-link-color:$header-link-color;
+    header-link-color-hover:$header-link-color-hover;
+
     top-header-font-color:$top-header-font-color;
     top-header-border-bottom:$top-header-border-bottom;
 
@@ -88,4 +96,9 @@ $screen-xlg:1200px;
 
     testimonials-position-color:$testimonials-position-color;
     testimonials-hr-color:$testimonials-hr-color;
+
+    screen-sm:$screen-sm;
+    screen-md:$screen-md;
+    screen-lg:$screen-lg;
+    screen-xlg:$screen-xlg;
   }
