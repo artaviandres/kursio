@@ -37,6 +37,9 @@ $home-svg-blocks-button-color: #fff;
 
 $subscribe-to-newsletter-color: #fff;
 
+$testimonials-position-color: rgb(168, 168, 168);
+$testimonials-hr-color: #ccc;
+
 $input-primary-color: #f0f2f5;
 
 //screen resolutions, responsiveness
@@ -84,4 +87,7 @@ $screen-xlg:1200px;
     home-svg-blocks-button-color:$home-svg-blocks-button-color;
 
     subscribe-to-newsletter-color:$subscribe-to-newsletter-color;
+
+    testimonials-position-color:$testimonials-position-color;
+    testimonials-hr-color:$testimonials-hr-color;
   }
