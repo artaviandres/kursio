@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Trans, useTranslation } from "react-i18next";
-import { FaSearch, FaBars } from "react-icons/fa";
+import { IoMdClose } from 'react-icons/io';
+import SearchResults from './SearchResults';
 import '../../styles/search-bar.scss';
-import STYLES from '../../styles/variables.scss';
 
-export default function SearchBar() {
+export default function SearchBar({ onClose, onChange, searchText }) {
   const { t } = useTranslation();
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+  });
+  const escFunction = (event) => {
+    if(event.keyCode === 27) {
+      onClose();
+    }
+  }
   return (
     <div className="search-bar-container">
-      <div className="search-bar-categories">
-        <FaBars />
-        <Trans i18nKey="search_bar_category" />
-      </div>
-      <div className="search-bar-input">
-        <input type="text" placeholder={t('search_bar_placeholder')} />
-      </div>
-      <div className="search-bar-button">
-        <FaSearch color={STYLES["white"]} size={18} />
+      <div className="search-bar-wrapper">
+        <input placeholder="Search courses, teachers or categories." onChange={onChange} />
+        <a className="search-bar-close" onClick={() => onClose()}>
+          <IoMdClose size={42} />
+        </a>
+        {searchText ? <SearchResults /> : null}
       </div>
     </div>
   );
