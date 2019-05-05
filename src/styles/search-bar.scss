@@ -2,49 +2,64 @@
 
 .search-bar-container {
   display: flex;
-  height: 50px;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
 
-  .search-bar-categories {
-    width: 25%;
-    background-color: $bottom-header-category-gray-bg;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-family: $primary-font-bold;
-    font-size: 14px;
-    color: $bottom-header-category-gray-text;
-    cursor: pointer;
+  .search-bar-wrapper {
+    max-width: 1048px;
+    width: 100%;
 
-    svg {
-      margin-right: 5px;
+    @media (max-width: $screen-sm) {
+      padding: 0 20px;
     }
-  }
 
-  .search-bar-input {
-    width: 65%;
-    background-color: white;
+    .search-bar-close {
+      position: absolute;
+      top: 50px;
+      margin-left: -35px;
+      cursor: pointer;
+      color: black;
+      transition: color 0.3s ease;
+
+      @media (max-width: $screen-sm) {
+        margin-left: -5px;
+      }
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
 
     input {
-      height: 92%;
+      margin-top: 40px;
       width: 100%;
-      border: 0;
-      padding-left: 10px;
+      height: 60px;
+      border: none;
+      border-bottom: 1px solid $search-bar-border-color;
+      color: $search-bar-font-color;
       font-family: $primary-font-thin;
-      font-size: 16px;
+      font-size: 36px;
+
+      @media (max-width: $screen-sm) {
+        font-size: 20px;
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &::placeholder {
+        color: $search-bar-placeholder-color;
+      }
 
       &:focus {
         outline: 0;
       }
     }
-  }
-
-  .search-bar-button {
-    width: 10%;
-    background-color: $primary-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
   }
 }
