@@ -1,0 +1,29 @@
+@import './variables.scss';
+
+.recent-courses-links-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+
+  a {
+    cursor: pointer;
+    color: $recent-courses-links-color;
+    margin: 5px;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-radius: 15px;
+    transition: all .35s cubic-bezier(.66,.36,.17,.91);
+
+    &:hover {
+      background-color: $recent-courses-links-color-hover;
+      color: white;
+    }
+  }
+
+  .selected-category {
+    background-color: $recent-courses-links-color-hover;
+      color: white;
+  }
+}

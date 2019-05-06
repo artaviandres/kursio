@@ -16,6 +16,7 @@ import HomeSvgBlock from '../presentationals/HomeSvgBlock';
 import Footer from '../presentationals/Footer';
 import Title from '../presentationals/Title';
 import SubscribeNewsletter from '../presentationals/SubscribeNewsletter';
+import RecentCoursesLinks from '../presentationals/RecentCoursesLinks';
 
 import '../../styles/app.scss';
 
@@ -29,6 +30,7 @@ import TestimonialsContainer from '../presentationals/TestimonialsContainer';
 
 function App({ logInModalStatus, signUpModalStatus }) {
   const { i18n, t } = useTranslation();
+  const [selectedRecentCourseCategory, setSelectedRecentCourseCategory] = useState(0);
 
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
@@ -97,14 +99,12 @@ function App({ logInModalStatus, signUpModalStatus }) {
         <HeaderCarousel />
       </div>
       <Grid fluid className="app-container">
-        <Row >
-          {categories.map(category => <Category key={category.text_key} icon={category.icon} text={t(category.text_key)} />)}
-        </Row>
         <Row between="md" className="row-container section-title section-title-border ">
           <Col xs={12}>
             <Title fontSize="42px">Recent Courses</Title>
           </Col>
         </Row>
+        <RecentCoursesLinks selectedRecentCourseCategory={selectedRecentCourseCategory} setSelectedRecentCourseCategory={setSelectedRecentCourseCategory} />
         <Row className="row-container cards-wrapper">
           <CourseCard
             title="React Basics"
@@ -114,24 +114,6 @@ function App({ logInModalStatus, signUpModalStatus }) {
             price="$55"
             image={ReactBg}
             description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
-          />
-          <CourseCard
-            title="VueJS Basics"
-            category="Development"
-            rating="3"
-            numberOfRatings="93"
-            price="$95"
-            image={VueBg}
-            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
-          />
-          <CourseCard
-            title="Baking some amazing Cookies!"
-            category="Cooking"
-            rating="5"
-            numberOfRatings="93"
-            price="$25"
-            image={CookiesBg}
-            description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
           />
           <CourseCard
             title="VueJS Basics"
