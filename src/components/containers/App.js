@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Trans, useTranslation } from "react-i18next";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { FaRegLightbulb } from "react-icons/fa";
+import { FaRegLightbulb, FaSitemap } from "react-icons/fa";
 import { connect } from 'react-redux';
 import { Tab } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
 import HeaderCarousel from '../presentationals/HeaderCarousel';
@@ -17,6 +18,8 @@ import Footer from '../presentationals/Footer';
 import Title from '../presentationals/Title';
 import SubscribeNewsletter from '../presentationals/SubscribeNewsletter';
 import RecentCoursesLinks from '../presentationals/RecentCoursesLinks';
+import TestimonialsContainer from '../presentationals/TestimonialsContainer';
+import STYLES from '../../styles/variables.scss';
 
 import '../../styles/app.scss';
 
@@ -26,7 +29,9 @@ import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
 import Professor from '../../assets/img/professor.svg';
 import PeopleFun from '../../assets/img/people_fun.svg';
-import TestimonialsContainer from '../presentationals/TestimonialsContainer';
+import SoftwareEngineer from '../../assets/img/software-engineer.svg';
+import Analytics from '../../assets/img/analytics.svg';
+import PersonalSite from '../../assets/img/personal-site.svg';
 
 function App({ logInModalStatus, signUpModalStatus }) {
   const { i18n, t } = useTranslation();
@@ -97,6 +102,20 @@ function App({ logInModalStatus, signUpModalStatus }) {
       <Header changeLanguage={(val) => changeLanguage(val)} />
       <div className="header-carousel">
         <HeaderCarousel />
+      </div>
+      <div className="about-kursio">
+        <div className="about-kursio-info">
+          <Title fontSize={60}>About Kursio</Title>
+          <p>
+            « <span>Kursio</span> » - is an educational platform where you can get valuable knowledge from real practics and high level specialists  in the following areas: <span>Business, Music, Technology, Cooking, Parenthood, Art, Do It Yourself, Languages</span>, and many more.
+          </p>
+          <Link to="/about">
+            <a>
+              Learn more about us
+            </a>
+          </Link>
+        </div>
+        <img src={Analytics} />
       </div>
       <Grid fluid className="app-container">
         <Row between="md" className="row-container section-title section-title-border ">
