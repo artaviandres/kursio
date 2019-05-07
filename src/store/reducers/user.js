@@ -8,6 +8,10 @@ import { userActions } from '../actions';
       return Object.assign({}, state, {
         userData: action.payload
       });
+    case userActions.GET_USER_SIGNUP:
+      return Object.assign({}, state, {
+        userData: action.payload
+      });
     default:
       return state;
   }
