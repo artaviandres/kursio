@@ -9,6 +9,7 @@
     "i18next-browser-languagedetector": "^3.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.8.6",
     "react-facebook-login": "^4.1.1",
     "react-flexbox-grid": "^2.1.2",
