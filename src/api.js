@@ -1,6 +1,7 @@
 const api = {
   host: 'http://kursio.ru:8888/v1/',
-  login: 'login'
+  login: 'login',
+  signup: 'register'
 }
 
 export default api;

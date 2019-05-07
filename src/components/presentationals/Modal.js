@@ -15,7 +15,11 @@ function Modal({ children, bgColor, width, height, setLogInModalStatus, setSignU
       <a className="modal-close" onClick={() => quittingModals()}>
         X
       </a>
-      <div className="modal-container" style={{ width, height, backgroundColor: bgColor }}>
+      <div className="modal-container" 
+      style={{ width, 
+        height, 
+        backgroundColor: bgColor
+        }}>
         {children}
       </div>
     </div>

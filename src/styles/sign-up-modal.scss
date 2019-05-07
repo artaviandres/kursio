@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.log-in-modal-container {
+  background-color: white;
+  padding: 0 50px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  // justify-content: center;
+
+  .social-media-buttons {
+    span {
+      width: 100%;
+    }
+    button {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+  }
+}
