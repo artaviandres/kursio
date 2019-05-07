@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Trans, useTranslation } from "react-i18next";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { FaRegLightbulb } from "react-icons/fa";
+import { FaRegLightbulb, FaSitemap } from "react-icons/fa";
 import { connect } from 'react-redux';
 import { Tab } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
 import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
 import HeaderCarousel from '../presentationals/HeaderCarousel';
@@ -16,6 +17,9 @@ import HomeSvgBlock from '../presentationals/HomeSvgBlock';
 import Footer from '../presentationals/Footer';
 import Title from '../presentationals/Title';
 import SubscribeNewsletter from '../presentationals/SubscribeNewsletter';
+import RecentCoursesLinks from '../presentationals/RecentCoursesLinks';
+import TestimonialsContainer from '../presentationals/TestimonialsContainer';
+import STYLES from '../../styles/variables.scss';
 
 import '../../styles/app.scss';
 
@@ -25,10 +29,13 @@ import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
 import Professor from '../../assets/img/professor.svg';
 import PeopleFun from '../../assets/img/people_fun.svg';
-import TestimonialsContainer from '../presentationals/TestimonialsContainer';
+import SoftwareEngineer from '../../assets/img/software-engineer.svg';
+import Analytics from '../../assets/img/analytics.svg';
+import PersonalSite from '../../assets/img/personal-site.svg';
 
 function App({ logInModalStatus, signUpModalStatus }) {
   const { i18n, t } = useTranslation();
+  const [selectedRecentCourseCategory, setSelectedRecentCourseCategory] = useState(0);
 
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
@@ -96,15 +103,27 @@ function App({ logInModalStatus, signUpModalStatus }) {
       <div className="header-carousel">
         <HeaderCarousel />
       </div>
+      <div className="about-kursio">
+        <div className="about-kursio-info">
+          <Title fontSize={60}>About Kursio</Title>
+          <p>
+            « <span>Kursio</span> » - is an educational platform where you can get valuable knowledge from real practics and high level specialists  in the following areas: <span>Business, Music, Technology, Cooking, Parenthood, Art, Do It Yourself, Languages</span>, and many more.
+          </p>
+          <Link to="/about">
+            <a>
+              Learn more about us
+            </a>
+          </Link>
+        </div>
+        <img src={Analytics} />
+      </div>
       <Grid fluid className="app-container">
-        <Row >
-          {categories.map(category => <Category key={category.text_key} icon={category.icon} text={t(category.text_key)} />)}
-        </Row>
         <Row between="md" className="row-container section-title section-title-border ">
           <Col xs={12}>
             <Title fontSize="42px">Recent Courses</Title>
           </Col>
         </Row>
+        <RecentCoursesLinks selectedRecentCourseCategory={selectedRecentCourseCategory} setSelectedRecentCourseCategory={setSelectedRecentCourseCategory} />
         <Row className="row-container cards-wrapper">
           <CourseCard
             title="React Basics"
@@ -114,24 +133,6 @@ function App({ logInModalStatus, signUpModalStatus }) {
             price="$55"
             image={ReactBg}
             description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
-          />
-          <CourseCard
-            title="VueJS Basics"
-            category="Development"
-            rating="3"
-            numberOfRatings="93"
-            price="$95"
-            image={VueBg}
-            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
-          />
-          <CourseCard
-            title="Baking some amazing Cookies!"
-            category="Cooking"
-            rating="5"
-            numberOfRatings="93"
-            price="$25"
-            image={CookiesBg}
-            description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
           />
           <CourseCard
             title="VueJS Basics"

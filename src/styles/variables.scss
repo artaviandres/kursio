@@ -46,6 +46,14 @@ $testimonials-hr-color: #ccc;
 
 $input-primary-color: #f0f2f5;
 
+$search-bar-border-color: #ccc;
+$search-bar-placeholder-color: #aaaaaa;
+$search-bar-font-color: #000;
+
+$recent-courses-links-color: #000;
+$recent-courses-links-color-hover: $primary-color;
+$recent-courses-links-selected-background: $primary-color;
+
 //screen resolutions, responsiveness
 $screen-sm: 576px;
 $screen-md: 768px;
@@ -98,6 +106,8 @@ $screen-xlg:1200px;
 
     testimonials-position-color:$testimonials-position-color;
     testimonials-hr-color:$testimonials-hr-color;
+
+    search-bar-border-color:$search-bar-border-color;
 
     screen-sm:$screen-sm;
     screen-md:$screen-md;

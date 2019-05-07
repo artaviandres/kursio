@@ -6,6 +6,7 @@ import { Button } from 'semantic-ui-react';
 import Breakpoint from 'react-socks';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import SearchBar from './SearchBar';
 import '../../styles/header.scss';
 import STYLES from '../../styles/variables.scss';
 
@@ -15,7 +16,26 @@ import { setLogInModal, setSignUpModal } from '../../store/actions/modals';
 
 function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
+  const [searchText, setSearchText] = useState('');
   const { t } = useTranslation();
+  
+  const searchTextChanged = (e) => {
+    e.preventDefault();
+    //make request to api
+    setSearchText(e.target.value);
+  }
+
+  const escFunction = (event) => {
+    if(event.keyCode === 27) {
+      closeSearch();
+    }
+  }
+  
+  const closeSearch = () => {
+    setSearchOpen(!isSearchOpen);
+    setSearchText(setSearchText(''));
+  };
+
   const languageOptions = [
     {
       value: 'en',
@@ -54,7 +74,7 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
             <IoIosMenu size={24} />
           </a>
         </Col>
-        {isSearchOpen ? <div className="header-search">hola</div> : null}
+        {isSearchOpen ? <SearchBar onClose={() => closeSearch()} onChange={(e) => searchTextChanged(e)} searchText={searchText} /> : null}
       </Row>
     </Grid>
   )

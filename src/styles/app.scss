@@ -1,5 +1,49 @@
 @import './variables.scss';
 
+.about-kursio {
+  width: 100%;
+  height: 500px;
+  // background-color: $primary-color;
+  background-color: white;
+  border: 1px solid #ccc;
+
+  .about-kursio-info {
+    position: absolute;
+    height: 60%;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    p {
+      font-family: $primary-font-thin;
+      font-size: 20px;
+      max-width: 700px;
+
+      span {
+        font-family: $primary-font-regular;
+        color: $primary-color;
+      }
+    }
+
+    a {
+      color: $primary-color;
+      cursor: pointer;
+      border-spacing: 5px;
+      text-decoration: underline;
+      font-family: $primary-font-regular;
+    }
+  }
+
+  img {
+    width: 45%;
+    min-width: 400px;
+    position: absolute;
+    right: 5px;
+    margin-top: 10px;
+  }
+}
+
 .app-container {
   padding: 0 8px;
   width: auto;
