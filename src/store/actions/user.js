@@ -29,10 +29,8 @@ export const getUserLogin = (username, password) => (dispatch)=> {
 
 export const getUserSignUp = (user) => (dispatch)=> {
   const userData = user;
-  console.log(user);
   axios.post(`${api.host}${api.signup}`, userData)
     .then((res) => {
-      console.log(res);
       return dispatch({
         type: GET_USER_SIGNUP,
         payload: res,
