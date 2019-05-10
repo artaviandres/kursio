@@ -54,6 +54,11 @@ $recent-courses-links-color: #000;
 $recent-courses-links-color-hover: $primary-color;
 $recent-courses-links-selected-background: $primary-color;
 
+$course-header-bg-color: $primary-color;
+$course-header-font-color: #fff;
+$course-sidebar-background: #fff;
+$course-sidebar-border: #e1e2e4;
+
 //screen resolutions, responsiveness
 $screen-sm: 576px;
 $screen-md: 768px;
@@ -108,6 +113,10 @@ $screen-xlg:1200px;
     testimonials-hr-color:$testimonials-hr-color;
 
     search-bar-border-color:$search-bar-border-color;
+
+    course-header-bg-color:$course-header-bg-color;
+    course-header-font-color:$course-header-font-color;
+
 
     screen-sm:$screen-sm;
     screen-md:$screen-md;
