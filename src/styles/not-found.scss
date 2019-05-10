@@ -1,0 +1,47 @@
+@import './variables.scss';
+
+.not-found-container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  .not-found-wrapper {
+    margin-top: 95px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  
+    img {
+      width: 46%;
+      min-width: 500px;
+      position: absolute;
+      top: 150px;
+    }
+
+    .not-found-text {
+      margin-top: 500px;
+      text-align: center;
+
+      h1 {
+        margin: 0;
+      }
+
+      p {
+        font-family: $primary-font-thin;
+        font-size: 18px;
+      }
+
+      a {
+        font-family: $primary-font-regular;
+        font-size: 18px;
+        text-decoration: underline;
+        color: $primary-color;
+        cursor: pointer;
+      }
+
+      @media (max-width: $screen-lg) {
+        margin-top: 400px;
+      }
+    }
+  }
+}
