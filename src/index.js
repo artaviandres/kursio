@@ -9,6 +9,9 @@ import UserProfile from './components/containers/UserProfile';
 import Certificates from './components/containers/Certificates';
 import AboutUs from './components/containers/AboutUs';
 import Course from './components/containers/Course';
+
+//teacherHub
+import THCourses from './components/containers/TeacherHub/Courses';
 import store from './store/store';
 import './index.scss';
 
@@ -25,6 +28,7 @@ ReactDOM.render(
           <Route path="/certificates" exact component={Certificates} />
           <Route path="/about" exact component={AboutUs} />
           <Route path="/course" exact component={Course} />
+          <Route path="/teacher/courses" exact component={THCourses} />
         </Switch>
       </BrowserRouter>
     </BreakpointProvider>
