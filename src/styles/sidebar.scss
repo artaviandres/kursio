@@ -1,0 +1,63 @@
+@import './variables.scss';
+
+.sidebar-container {
+  height: 100vh;
+  width: 70px;
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+
+  .sidebar-logo {
+    height: 10%;
+
+    h1 {
+      font-size: 48px;
+      color: white;
+      font-family: $primary-font-bold;
+    }
+  }
+
+  .sidebar-links {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .sidebar-link {
+      cursor: pointer;
+      color: white;
+      border-top: 1px solid $teacher-hub-sidebar-icon-border;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+  
+      &:last-child {
+        border-bottom: 1px solid $teacher-hub-sidebar-icon-border;
+      }
+  
+      &.animation-hover {
+        position: relative;
+        overflow: hidden;
+        &:before {
+          content: "";
+          background: rgba(0,0,0,.1);
+          height: 100%;
+          left: -100%;
+          position: absolute;
+          top: 0;
+          transition: 0.2s;
+          width: 100%;
+        }
+        &:hover::before{
+          left: 0;
+          transition: all .25s cubic-bezier(.66,.36,.17,.91);
+        }
+      }
+    }
+  }
+}
