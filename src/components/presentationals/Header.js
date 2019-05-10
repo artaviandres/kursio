@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { IoIosSearch, IoIosHeartEmpty, IoIosMenu, IoIosArrowDown } from 'react-icons/io';
+import { IoIosSearch, IoIosHeartEmpty, IoIosMenu, IoIosArrowDown, IoMdPerson } from 'react-icons/io';
 import { Trans, useTranslation } from 'react-i18next';
 import { Button } from 'semantic-ui-react';
 import Breakpoint from 'react-socks';
@@ -50,7 +50,6 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
   return (
     <Grid fluid className="header-container">
       <Row className="header-content">
-        <Button onClick={()=>{setSignUpModalStatus(true)}}>Login</Button>
         <Col md={2} xs={3} className="header-logo">
           <Link to="/">
             <img src={LogoThin} />
@@ -72,6 +71,9 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
           </a>
           <a>
             <IoIosMenu size={24} />
+          </a>
+          <a onClick={()=>{setSignUpModalStatus(true)}}>
+            <IoMdPerson size={24} />
           </a>
         </Col>
         {isSearchOpen ? <SearchBar onClose={() => closeSearch()} onChange={(e) => searchTextChanged(e)} searchText={searchText} /> : null}
