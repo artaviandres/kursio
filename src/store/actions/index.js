@@ -1,3 +1,4 @@
 import * as modalsActions from './modals';
 import * as userActions from './user'
-export { modalsActions, userActions };
+import * as authActions from './auth'
+export { modalsActions, userActions, authActions };

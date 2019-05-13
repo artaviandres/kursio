@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { IoIosSearch, IoIosHeartEmpty, IoIosMenu, IoIosArrowDown, IoMdPerson } from 'react-icons/io';
 import { Trans, useTranslation } from 'react-i18next';
-import { Button } from 'semantic-ui-react';
 import Breakpoint from 'react-socks';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
@@ -12,9 +11,10 @@ import STYLES from '../../styles/variables.scss';
 
 import LogoThin from '../../assets/img/logo-thin-blue.svg';
 
-import { setLogInModal, setSignUpModal } from '../../store/actions/modals';
+import { setLogInModal } from '../../store/actions/modals';
+import { logOutUser } from '../../store/actions/auth';
 
-function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
+function Header({ changeLanguage, setLogInModalStatus, userData, logOutStatus }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [searchText, setSearchText] = useState('');
   const { t } = useTranslation();
@@ -72,8 +72,11 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
           <a>
             <IoIosMenu size={24} />
           </a>
-          <a onClick={()=>{setSignUpModalStatus(true)}}>
+          <a onClick={()=>{setLogInModalStatus(true)}}>
             <IoMdPerson size={24} />
+          </a>
+          <a onClick={()=>{logOutStatus(true)}}>
+          <span>{userData ? userData.name :  ''}</span>
           </a>
         </Col>
         {isSearchOpen ? <SearchBar onClose={() => closeSearch()} onChange={(e) => searchTextChanged(e)} searchText={searchText} /> : null}
@@ -82,9 +85,13 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  setLogInModalStatus: (status) => dispatch(setLogInModal(status)),
-  setSignUpModalStatus: (status) => dispatch(setSignUpModal(status)),
+const mapStateToProps = (state) => ({
+  userData: state.authReducer.userData ? state.authReducer.userData : null,
 });
 
-export default connect(null, mapDispatchToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  setLogInModalStatus: (status) => dispatch(setLogInModal(status)),
+  logOutStatus: () => dispatch(logOutUser())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
