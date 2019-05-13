@@ -11,7 +11,7 @@ import SocialMediaIcon from './SocialMediaIcon';
 import '../../styles/log-in-modal.scss';
 
 import { setCaptchaValidation } from '../../store/actions/modals';
-import { getUserLogin } from '../../store/actions/user';
+import { getUserLogin } from '../../store/actions/auth';
 import STYLES from '../../styles/variables.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
