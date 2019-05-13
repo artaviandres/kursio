@@ -36,7 +36,6 @@ export const getUserSignUp = (user, social) => (dispatch) => {
     endpoint = `${api.login}/${social}`;
   }
   const userData = user;
-  console.log(endpoint, userData);
   axios.post(`${api.host}${endpoint}`, userData)
     .then((res) => {
       dispatch({
