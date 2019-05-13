@@ -33,7 +33,7 @@ function SignUpModal({ setCaptchaValidationStatus, getUserSignupFunc, captchaVal
   const submitSignUp = (e) => {
     e.preventDefault();
     if (captchaValidation) {
-      getUserSignupFunc({userName, password, email, name, lastName});
+      getUserSignupFunc({ userName, password, email, name, lastName }, null);
     } else {
       toast.error('Please check the Re-Captcha before continuing.', {
         position: "bottom-right",
@@ -45,19 +45,8 @@ function SignUpModal({ setCaptchaValidationStatus, getUserSignupFunc, captchaVal
       });
     }
   }
-  const submitSignUpSocial = (user) => {
-    if (captchaValidation) {
-      getUserSignupFunc(user);
-    } else {
-      toast.error('Please check the Re-Captcha before continuing.', {
-        position: "bottom-right",
-        autoClose: 8000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: false,
-      });
-    }
+  const submitSignUpSocial = (user, social) => {
+    getUserSignupFunc(user, social);
   }
   return (
     <form
@@ -81,17 +70,17 @@ function SignUpModal({ setCaptchaValidationStatus, getUserSignupFunc, captchaVal
             onChange={(response) => changeCaptcha(response)}
           />
         </Col>
-        <Col xs={12} className="remember-and-button-col" 
-        style={{
-          margin:"20px auto 0"
-        }}>
-          <Button text="Log In" bgColor={STYLES["footer-link-color"]} color={STYLES["white"]} classList="full-width-button"/>
+        <Col xs={12} className="remember-and-button-col"
+          style={{
+            margin: "20px auto 0"
+          }}>
+          <Button text="Sign Up" bgColor={STYLES["footer-link-color"]} color={STYLES["white"]} classList="full-width-button" />
         </Col>
       </Row>
       <Row>
-        <Col md={12} 
-        style={{margin:"30px 0"}}
-        className="log-in-modal-divider">
+        <Col md={12}
+          style={{ margin: "30px 0" }}
+          className="log-in-modal-divider">
           OR
         </Col>
       </Row>
@@ -102,12 +91,12 @@ function SignUpModal({ setCaptchaValidationStatus, getUserSignupFunc, captchaVal
           fields="name,email,picture"
           onClick={() => { console.log('clicked') }}
           style={{ width: "100%" }}
-          callback={(response) => { submitSignUpSocial(response);}} />
+          callback={(response) => { submitSignUpSocial(response, 'facebook'); }} />
         <GoogleLogin
           clientId="404835748085-ig3igh2nje22uoqil5anasiefnkassls.apps.googleusercontent.com"
           buttonText="Sign Up with Google"
-          onSuccess={(response) => { submitSignUpSocial(response);}}
-          onFailure={(response) => { console.log(response.details);}}
+          onSuccess={(response) => { submitSignUpSocial(response, 'google'); }}
+          onFailure={(response) => { console.log(response.details); }}
           cookiePolicy={'single_host_origin'}
         />
       </Row>
@@ -132,7 +121,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   setCaptchaValidationStatus: (status) => dispatch(setCaptchaValidation(status)),
-  getUserSignupFunc: (user) => dispatch(getUserSignUp(user)),
+  getUserSignupFunc: (user, social) => dispatch(getUserSignUp(user, social)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpModal);

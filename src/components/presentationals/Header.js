@@ -12,9 +12,9 @@ import STYLES from '../../styles/variables.scss';
 
 import LogoThin from '../../assets/img/logo-thin-blue.svg';
 
-import { setLogInModal, setSignUpModal } from '../../store/actions/modals';
+import { setLogInModal } from '../../store/actions/modals';
 
-function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
+function Header({ changeLanguage, setLogInModalStatus, userData }) {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [searchText, setSearchText] = useState('');
   const { t } = useTranslation();
@@ -72,9 +72,10 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
           <a>
             <IoIosMenu size={24} />
           </a>
-          <a onClick={()=>{setSignUpModalStatus(true)}}>
+          <a onClick={()=>{setLogInModalStatus(true)}}>
             <IoMdPerson size={24} />
           </a>
+          <span>{userData.name || 'username'}</span>
         </Col>
         {isSearchOpen ? <SearchBar onClose={() => closeSearch()} onChange={(e) => searchTextChanged(e)} searchText={searchText} /> : null}
       </Row>
@@ -82,9 +83,12 @@ function Header({ changeLanguage, setLogInModalStatus, setSignUpModalStatus }) {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  setLogInModalStatus: (status) => dispatch(setLogInModal(status)),
-  setSignUpModalStatus: (status) => dispatch(setSignUpModal(status)),
+const mapStateToProps = (state) => ({
+  userData: state.userReducer.userData ? state.userReducer.userData : null,
 });
 
-export default connect(null, mapDispatchToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  setLogInModalStatus: (status) => dispatch(setLogInModal(status))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
