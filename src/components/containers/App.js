@@ -5,6 +5,7 @@ import { FaRegLightbulb, FaSitemap } from "react-icons/fa";
 import { connect } from 'react-redux';
 import { Tab } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
+import ScrollAnimation from 'react-animate-on-scroll';
 import Category from '../presentationals/Category';
 import Header from '../presentationals/Header';
 import HeaderCarousel from '../presentationals/HeaderCarousel';
@@ -103,20 +104,22 @@ function App({ logInModalStatus, signUpModalStatus }) {
       <div className="header-carousel">
         <HeaderCarousel />
       </div>
-      <div className="about-kursio">
-        <div className="about-kursio-info">
-          <Title fontSize={60}>About Kursio</Title>
-          <p>
-            « <span>Kursio</span> » - is an educational platform where you can get valuable knowledge from real practics and high level specialists  in the following areas: <span>Business, Music, Technology, Cooking, Parenthood, Art, Do It Yourself, Languages</span>, and many more.
-          </p>
-          <Link to="/about">
-            <a>
-              Learn more about us
-            </a>
-          </Link>
+      <ScrollAnimation animateIn='fadeIn'>
+        <div className="about-kursio">
+          <div className="about-kursio-info">
+            <Title fontSize={60}>About Kursio</Title>
+            <p>
+              « <span>Kursio</span> » - is an educational platform where you can get valuable knowledge from real practics and high level specialists  in the following areas: <span>Business, Music, Technology, Cooking, Parenthood, Art, Do It Yourself, Languages</span>, and many more.
+            </p>
+            <Link to="/about">
+              <a>
+                Learn more about us
+              </a>
+            </Link>
+          </div>
+          <img src={Analytics} />
         </div>
-        <img src={Analytics} />
-      </div>
+      </ScrollAnimation>
       <Grid fluid className="app-container">
         <Row between="md" className="row-container section-title section-title-border ">
           <Col xs={12}>
@@ -124,62 +127,64 @@ function App({ logInModalStatus, signUpModalStatus }) {
           </Col>
         </Row>
         <RecentCoursesLinks selectedRecentCourseCategory={selectedRecentCourseCategory} setSelectedRecentCourseCategory={setSelectedRecentCourseCategory} />
-        <Row className="row-container cards-wrapper">
-          <CourseCard
-            title="React Basics"
-            category="Development"
-            rating="4.5"
-            numberOfRatings="18"
-            price="$55"
-            image={ReactBg}
-            description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
-          />
-          <CourseCard
-            title="VueJS Basics"
-            category="Development"
-            rating="3"
-            numberOfRatings="93"
-            price="$95"
-            image={VueBg}
-            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
-          />
-          <CourseCard
-            title="Baking some amazing Cookies!"
-            category="Cooking"
-            rating="5"
-            numberOfRatings="93"
-            price="$25"
-            image={CookiesBg}
-            description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
-          />
-          <CourseCard
-            title="VueJS Basics"
-            category="Development"
-            rating="3"
-            numberOfRatings="93"
-            price="$95"
-            image={VueBg}
-            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
-          />
-          <CourseCard
-            title="Baking some amazing Cookies!"
-            category="Cooking"
-            rating="5"
-            numberOfRatings="93"
-            price="$25"
-            image={CookiesBg}
-            description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
-          />
-          <CourseCard
-            title="VueJS Basics"
-            category="Development"
-            rating="3"
-            numberOfRatings="93"
-            price="$95"
-            image={VueBg}
-            description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
-          />
-        </Row>
+        <ScrollAnimation animateIn='fadeIn'>
+          <Row className="row-container cards-wrapper">
+            <CourseCard
+              title="React Basics"
+              category="Development"
+              rating="4.5"
+              numberOfRatings="18"
+              price="$55"
+              image={ReactBg}
+              description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
+            />
+            <CourseCard
+              title="VueJS Basics"
+              category="Development"
+              rating="3"
+              numberOfRatings="93"
+              price="$95"
+              image={VueBg}
+              description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+            />
+            <CourseCard
+              title="Baking some amazing Cookies!"
+              category="Cooking"
+              rating="5"
+              numberOfRatings="93"
+              price="$25"
+              image={CookiesBg}
+              description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+            />
+            <CourseCard
+              title="VueJS Basics"
+              category="Development"
+              rating="3"
+              numberOfRatings="93"
+              price="$95"
+              image={VueBg}
+              description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+            />
+            <CourseCard
+              title="Baking some amazing Cookies!"
+              category="Cooking"
+              rating="5"
+              numberOfRatings="93"
+              price="$25"
+              image={CookiesBg}
+              description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
+            />
+            <CourseCard
+              title="VueJS Basics"
+              category="Development"
+              rating="3"
+              numberOfRatings="93"
+              price="$95"
+              image={VueBg}
+              description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
+            />
+          </Row>
+        </ScrollAnimation>
       </Grid>
       <Row>
         <SubscribeNewsletter />
@@ -190,27 +195,35 @@ function App({ logInModalStatus, signUpModalStatus }) {
             <Title fontSize="42px">Our Customers</Title>
           </Col>
         </Row>
-        <TestimonialsContainer />
+        <ScrollAnimation animateIn='fadeIn'>
+          <TestimonialsContainer />
+        </ScrollAnimation>
         <Row className="svgs-container">
           <Col md={6} xs={12} className="svg-container">
-            <HomeSvgBlock
-              image={Professor}
-              title="Teach what you love."
-              text="Being a professor at Kursio, you can generate income from your home."
-              button="Become a Professor"
-            />
+            <ScrollAnimation animateIn='fadeInLeft'>
+              <HomeSvgBlock
+                image={Professor}
+                title="Teach what you love."
+                text="Being a professor at Kursio, you can generate income from your home."
+                button="Become a Professor"
+              />
+            </ScrollAnimation>
           </Col>
           <Col md={6} xs={12} className="svg-container">
-            <HomeSvgBlock
-              image={PeopleFun}
-              title="Get your company involved."
-              text="Here at Kursio, we believe in teamwork and sharing. So, we offer special Enterprise Prices."
-              button="Enterprise Prices"
-            />
+            <ScrollAnimation animateIn='fadeInRight'>
+              <HomeSvgBlock
+                image={PeopleFun}
+                title="Get your company involved."
+                text="Here at Kursio, we believe in teamwork and sharing. So, we offer special Enterprise Prices."
+                button="Enterprise Prices"
+              />
+            </ScrollAnimation>
           </Col>
         </Row>
       </Grid>
-      <Footer />
+      <ScrollAnimation animateIn='fadeInDown'>
+        <Footer />
+      </ScrollAnimation>
       {logInModalStatus || signUpModalStatus ?
         <Modal width="40%" height="70%">
           <Tab menu={{ secondary: true, pointing: true }} panes={modalPanes} className="modal-tab" />

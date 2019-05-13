@@ -1,0 +1,227 @@
+@import './variables.scss';
+
+.course-container {
+  .course-header {
+    width: 100%;
+    background-color: $course-header-bg-color;
+    margin-top: 95px;
+
+    .course-header-inner {
+      height: 400px;
+      padding: 0 8px;
+      width: auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      color: $course-header-font-color;
+
+      h1, h4, h6, p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 38px;
+        font-family: $primary-font-bold;
+        max-width: 700px;
+      }
+
+      h4 {
+        font-size: 20px;
+        font-family: $primary-font-thin;
+        margin-top: 10px;
+        max-width: 700px;
+      }
+
+      .course-teacher-and-info {
+        margin-top: 40px;
+        display: flex;
+
+        p {
+          font-size: 16px;
+          font-family: $primary-font-thin;
+        }
+
+        .course-teacher {
+          display: flex;
+          align-items: center;
+          margin-right: 25px;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+          }
+
+          .course-teacher-name {
+            margin-left: 10px;
+
+            h6 {
+              font-size: 16px;
+              font-family: $primary-font-regular;
+            }
+          }
+        }
+
+        .course-students-enrolled {
+          display: flex;
+          align-items: center;
+          margin-right: 25px;
+
+          svg {
+            margin-right: 10px;
+          }
+        }
+
+        .course-languages {
+          display: flex;
+          align-items: center;
+
+          svg {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  .course-body {
+    padding: 0 8px;
+    width: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .course-learn {
+      border: 1px solid $course-sidebar-border;
+      border-radius: 5px;
+      width: 92%;
+      margin-top: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      h1 {
+        text-align: center;
+      }
+
+      .course-learn-item {
+        display: flex;
+        align-items: center;
+        font-family: $primary-font-thin;
+        font-size: 16px;
+
+        svg {
+          margin-right: 5px;
+          min-width: 36px;
+          color: $primary-color;
+        }
+      }
+    }
+
+    .course-sidebar {
+      margin-top: -380px;
+      background-color: $course-sidebar-background;
+      border-radius: 5px;
+      border: 1px solid $course-sidebar-border;
+      display: flex;
+      width: 100%;
+      max-width: 450px;
+      align-items: center;
+      flex-direction: column;
+      padding: 15px;
+      max-height: 670px;
+      position: fixed;
+      right: 50px;
+
+      .course-sidebar-img {
+        height: 210px;
+        width: 100%;
+      }
+
+      .course-sidebar-price {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        p {
+          margin: 0;
+        }
+
+        .course-sidebar-old-price-container {
+          display: flex;
+
+          .course-sidebar-old-price {
+            text-decoration: line-through;
+            font-family: $primary-font-light;
+            font-size: 16px;
+          }
+  
+          .course-sidebar-discount {
+            font-family: $primary-font-bold;
+            font-size: 16px;
+            margin-left: 10px;
+          }
+        }
+
+        .course-sidebar-purchase-button {
+          background-color: $primary-color;
+          color: white;
+          width: 100%;
+          border-radius: 10px;
+          height: 50px;
+          font-size: 20px;
+          margin-top: 15px;
+          font-family: $primary-font-bold;
+        }
+
+        .course-sidebar-add-to-cart {
+          background-color: white;
+          border: 1px solid $primary-color;
+          color: $primary-color;
+          width: 100%;
+          border-radius: 10px;
+          height: 50px;
+          margin-top: 8px;
+          font-family: $primary-font-light;
+        }
+      }
+
+      .course-sidebar-includes {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+
+        h5 {
+          font-family: $primary-font-light;
+          font-size: 18px;
+          margin: 30px 0 15px 0;
+        }
+
+        p {
+          display: flex;
+          align-items: center;
+          margin: 3px 0;
+          font-size: 14px;
+          font-family: $primary-font-light;
+
+          svg {
+            margin-right: 5px;
+            color: $primary-color;
+          }
+        }
+      }
+
+      hr {
+        height: 1px;
+        width: 100%;
+        background-color: $course-sidebar-border;
+        border: none;
+        margin: 20px 0;
+      }
+    }
+  }
+}
