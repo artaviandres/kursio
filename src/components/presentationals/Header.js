@@ -75,7 +75,9 @@ function Header({ changeLanguage, setLogInModalStatus, userData }) {
           <a onClick={()=>{setLogInModalStatus(true)}}>
             <IoMdPerson size={24} />
           </a>
-          <span>{userData.name || 'username'}</span>
+          <a>
+          <span>{userData.name || ''}</span>
+          </a>
         </Col>
         {isSearchOpen ? <SearchBar onClose={() => closeSearch()} onChange={(e) => searchTextChanged(e)} searchText={searchText} /> : null}
       </Row>
