@@ -105,17 +105,27 @@ function SignUpModal({
             onChange={response => changeCaptcha(response)}
           />
         </Col>
-        <Col xs={12} className="remember-and-button-col"
+        <Col
+          xs={12}
+          className="remember-and-button-col"
           style={{
             margin: "20px auto 0"
-          }}>
-          <Button text="Sign Up" bgColor={STYLES["footer-link-color"]} color={STYLES["white"]} classList="full-width-button" />
+          }}
+        >
+          <Button
+            text="Sign Up"
+            bgColor={STYLES["footer-link-color"]}
+            color={STYLES["white"]}
+            classList="full-width-button"
+          />
         </Col>
       </Row>
       <Row>
-        <Col md={12}
+        <Col
+          md={12}
           style={{ margin: "30px 0" }}
-          className="log-in-modal-divider">
+          className="log-in-modal-divider"
+        >
           OR
         </Col>
       </Row>
@@ -124,9 +134,7 @@ function SignUpModal({
           appId="2144045388984108"
           autoLoad={false}
           fields="name,email,picture"
-          onClick={() => {
-            console.log("clicked");
-          }}
+          onClick={() => {}}
           style={{ width: "100%" }}
           callback={response => {
             let userToSend = response;
@@ -144,7 +152,7 @@ function SignUpModal({
             submitSignUpSocial(response, "google");
           }}
           onFailure={response => {
-            console.log(response.details);
+            toast.error(response.details);
           }}
           cookiePolicy={"single_host_origin"}
         />
@@ -171,8 +179,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCaptchaValidationStatus: (status) => dispatch(setCaptchaValidation(status)),
-  getUserSignupFunc: (user, social) => dispatch(getUserSignUp(user, social)),
+  setCaptchaValidationStatus: status => dispatch(setCaptchaValidation(status)),
+  getUserSignupFunc: (user, social) => dispatch(getUserSignUp(user, social))
 });
 
 export default connect(
