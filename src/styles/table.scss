@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+.table-container {
+  font-family: $primary-font-light;
+
+  .table-header {
+    background-color: $primary-color !important;
+    color: white !important;
+    font-family: $primary-font-regular;
+  }
+}
