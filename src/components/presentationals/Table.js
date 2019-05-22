@@ -22,22 +22,6 @@ export default function TableComp({ color, headerCells, bodyCells, headerClass }
             ))}
           </Table.Row>
         ))}
-        {/* <Table.Row>
-          <Table.Cell collapsing>
-            <Checkbox defaultChecked />
-          </Table.Cell>
-          <Table.Cell>d44fe472-da7e-467c-ba9b-bf756eba788e</Table.Cell>
-          <Table.Cell>Andrés Artavia</Table.Cell>
-          <Table.Cell>artaviandres@gmail.com</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell collapsing>
-            <Checkbox defaultChecked />
-          </Table.Cell>
-          <Table.Cell>3ad74dfe-f619-4654-bcd9-39bb290ce728</Table.Cell>
-          <Table.Cell>Jon Snow</Table.Cell>
-          <Table.Cell>jon@snow.com</Table.Cell>
-        </Table.Row> */}
       </Table.Body>
     </Table>
   );
