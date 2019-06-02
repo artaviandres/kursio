@@ -17,7 +17,6 @@
   .modal-close {
     color: white;
     position: absolute;
-    top: 11%;
     cursor: pointer;
     left: 68%;
     font-size: 18px;
@@ -27,10 +26,8 @@
   }
 
   .modal-container {
-    width: 60%;
-    height: 60%;
-    min-width: 370px;
-    min-height: 400px;
+    min-width: 300px;
+    min-height: 300px;
     background-color: white;
 
     .modal-tab {
@@ -55,6 +52,27 @@
             border-color: #385bce !important;
             background-color: $modal-tab-bg-color-active !important;
           }
+        }
+      }
+    }
+
+    .coupons-modal-submit {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 30px;
+
+      .coupons-modal-button {
+        width: 60%;
+        border-radius: 0;
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: $primary-color;
+          color: white;
         }
       }
     }

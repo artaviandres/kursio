@@ -11,6 +11,12 @@ import AboutUs from './components/containers/AboutUs';
 import Course from './components/containers/Course';
 import NotFound from './components/containers/NotFound';
 
+//Renat Kashapov - Dedicated Client
+import Quiz from './components/containers/Renat/Quiz';
+import Results from './components/containers/Renat/Results';
+import RenatAdmin from './components/containers/Renat/Admin';
+import RenatCoupons from './components/containers/Renat/Coupons';
+
 //teacherHub
 import THCourses from './components/containers/TeacherHub/Courses';
 
@@ -31,6 +37,13 @@ ReactDOM.render(
           <Route path="/about" exact component={AboutUs} />
           <Route path="/course" exact component={Course} />
           <Route path="/teacher/courses" exact component={THCourses} />
+
+          {/* Renat Kashapov - Dedicated Client */}
+          <Route path="/course/renat/quiz" exact component={Quiz} />
+          <Route path="/course/renat/quiz/results" exact component={Results} />
+          <Route path="/teacher/courses/renat" exact component={RenatAdmin} />
+          <Route path="/teacher/courses/renat/coupons" exact component={RenatCoupons} />
+
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

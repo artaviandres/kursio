@@ -4,22 +4,19 @@ import '../../styles/modal.scss';
 
 import { setLogInModal, setSignUpModal } from '../../store/actions/modals';
 
-function Modal({ children, bgColor, width, height, setLogInModalStatus, setSignUpModalStatus }) {
+function Modal({ children, width, height, setLogInModalStatus, setSignUpModalStatus, onClose, style, closeTop }) {
   const quittingModals = () => {
+    onClose && onClose();
     setLogInModalStatus(false);
     setSignUpModalStatus(false);
   };
 
   return (
     <div className="modal-wrapper">
-      <a className="modal-close" onClick={() => quittingModals()}>
+      <a className="modal-close" onClick={() => quittingModals()} style={{ top: closeTop }}>
         X
       </a>
-      <div className="modal-container" 
-      style={{ width, 
-        height, 
-        backgroundColor: bgColor
-        }}>
+      <div className="modal-container" style={style}>
         {children}
       </div>
     </div>

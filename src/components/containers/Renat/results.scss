@@ -1,0 +1,97 @@
+@import '../../../styles/variables.scss';
+
+.results-container {
+  margin-top: 95px;
+  padding: 0 8px;
+  width: auto;
+  max-width: 1200px;
+  margin: 95px auto 0 auto;
+
+  .results-welcome-text {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+
+    p {
+      font-family: $primary-font-light;
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 0;
+
+      span {
+        font-family: $primary-font-bold;
+        font-size: 22px;
+      }
+    }
+  }
+
+  .results-plan-cards {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    
+    .plan-card-container {
+      width: 50%;
+      display: flex;
+      margin-bottom: 40px;
+
+      .plan-card-wrapper {
+        width: 70%;
+        min-width: 300px;
+        padding: 0 30px 30px 30px;
+        border: 1px solid $course-sidebar-border;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        transition: box-shadow 0.3s ease;
+
+        img {
+          width: 200px;
+          height: 200px;
+        }
+
+        .plan-card-bullet {
+          display: flex;
+          align-items: center;
+          font-family: $primary-font-thin;
+          font-size: 16px;
+          margin: 2px 0;
+
+          svg {
+            margin-right: 3px;
+            min-width: 40px;
+            color: $primary-color;
+          }
+        }
+
+        .plan-card-button {
+          width: 80%;
+          background-color: $primary-color;
+          margin-top: 25px;
+          color: white;
+        }
+
+        .plan-card-promo-code {
+          color: $primary-color;
+          margin-top: 15px;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        &:hover {
+          -webkit-box-shadow: 0 10px 40px rgba(83,109,254,.35);
+          -moz-box-shadow: 0 10px 40px rgba(83,109,254,.35);
+          box-shadow: 0 10px 40px rgba(83,109,254,.35);
+        }
+      }
+    }
+
+    :first-child {
+      justify-content: flex-end;
+      margin-right: 10px;
+    }
+  }
+}

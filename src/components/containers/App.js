@@ -45,7 +45,12 @@ function App({ logInModalStatus, signUpModalStatus }) {
   const modalPanes = [
     { menuItem: 'Log In', render: () => <LogInModal /> },
     { menuItem: 'Sign Up', render: () => <SignUpModal /> },
-  ]
+  ];
+
+  const modalStyles = {
+    width: '40%',
+    height: '70%'
+  };
 
   const categories = [
     {
@@ -225,7 +230,7 @@ function App({ logInModalStatus, signUpModalStatus }) {
         <Footer />
       </ScrollAnimation>
       {logInModalStatus || signUpModalStatus ?
-        <Modal width="40%" height="70%">
+        <Modal style={modalStyles} closeTop='11%'>
           <Tab menu={{ secondary: true, pointing: true }} panes={modalPanes} className="modal-tab" />
         </Modal>
       : null}

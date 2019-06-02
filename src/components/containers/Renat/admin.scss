@@ -1,0 +1,47 @@
+@import '../../../styles/variables.scss';
+
+.admin-container {
+  display: flex;
+  height: 100vh;
+
+  .admin-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .admin-welcome {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+  
+    .admin-column {
+      display: flex;
+  
+      .admin-card-container {
+        width: 90%;
+        height: 300px;
+        border: 1px solid $course-sidebar-border;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+  
+        img {
+          width: 200px;
+          margin-right: 10px;
+        }
+
+        h1 {
+          max-width: 210px;
+        }
+
+        &:hover {
+          -webkit-box-shadow: 0 10px 40px rgba(83,109,254,.35);
+          -moz-box-shadow: 0 10px 40px rgba(83,109,254,.35);
+          box-shadow: 0 10px 40px rgba(83,109,254,.35);
+        }
+      }
+    }
+  }
+}

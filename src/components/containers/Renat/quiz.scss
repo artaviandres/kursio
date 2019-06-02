@@ -1,0 +1,139 @@
+@import '../../../styles/variables.scss';
+
+.quiz-container {
+  background-color: $primary-color;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .quiz-progress {
+    display: flex;
+
+    .quiz-progress-item {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border:  1px solid white;
+      margin: 0 3px;
+
+      &.active {
+        background-color: white;
+      }
+    }
+  }
+
+  .quiz-question {
+    font-family: $primary-font-bold;
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media (max-width: $screen-md) {
+      font-size: 34px;
+    }
+  }
+
+  .quiz-option {
+    width: 60%;
+    margin: 5px 0;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    font-family: $primary-font-thin;
+    font-size: 20px;
+    cursor: pointer;
+
+    @media (max-width: $screen-md) {
+      width: 90%;
+    }
+
+    &:hover {
+      background-color: white;
+      color: $primary-color;
+      border-color: $primary-color;
+    }
+  }
+
+  .quiz-nav {
+    display: flex;
+    width: 60%;
+    margin-top: 30px;
+
+    .quiz-nav-item {
+      display: flex;
+      width: 50%;
+
+      @media (max-width: $screen-md) {
+        width: 90%;
+      }
+
+      &.previous {
+        justify-content: flex-start;
+        
+        a {
+          width: 45px;
+          height: 45px;
+          border: 1px solid white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+            color: $primary-color;
+            border-color: $primary-color;
+          }
+        }
+      }
+
+      &.next {
+        justify-content: flex-end;
+
+        a {
+          height: 45px;
+          border: 1px solid white;
+          display: flex;
+          align-items: center;
+          color: white;
+          width: 180px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+            color: $primary-color;
+            border-color: $primary-color;
+          }
+
+          span {
+            height: 100%;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1px solid white;
+            font-family: $primary-font-light;
+            font-size: 16px;
+          }
+
+          .next-arrow {
+            height: 100%;
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
