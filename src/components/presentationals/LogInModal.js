@@ -54,7 +54,6 @@ function LogInModal({
     Array.from(fbLogin.current.childNodes[0].childNodes)
       .find(el => el.nodeName === "BUTTON")
       .click();
-    console.log(fbLogin.current.childNodes[0].childNodes);
   };
   return (
     <form
