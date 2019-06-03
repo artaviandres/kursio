@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .modal-wrapper {
   position: fixed;
@@ -26,7 +26,7 @@
   }
 
   .modal-container {
-    min-width: 300px;
+    min-width: 325px;
     min-height: 300px;
     background-color: white;
 
@@ -43,11 +43,11 @@
           height: 60px;
           background-color: $modal-tab-bg-color;
           font-size: 18px;
-  
+
           &:hover {
             background-color: $modal-tab-bg-color !important;
           }
-  
+
           &.active {
             border-color: #385bce !important;
             background-color: $modal-tab-bg-color-active !important;
@@ -69,7 +69,7 @@
         border: 1px solid $primary-color;
         color: $primary-color;
         transition: background-color 0.3s ease;
-  
+
         &:hover {
           background-color: $primary-color;
           color: white;

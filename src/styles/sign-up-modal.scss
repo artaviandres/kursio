@@ -1,22 +1,77 @@
-@import './variables.scss';
+@import "./variables.scss";
 
-.log-in-modal-container {
+@import "./variables.scss";
+
+.sign-up-modal-container {
   background-color: white;
   padding: 0 50px;
   height: 90%;
   display: flex;
   flex-direction: column;
   padding-top: 30px;
-  // justify-content: center;
 
-  .social-media-buttons {
-    span {
-      width: 100%;
+  .log-in-modal-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .log-in-modal-divider {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: black;
+    margin: 0px 0px 8px;
+
+    @media (max-width: $screen-sm) {
+      margin: 20px 0px 8px;
     }
-    button {
-      width: 100%;
-      height: 50px;
-      margin-bottom: 20px;
+
+    &::before,
+    &::after {
+      content: "";
+      flex-grow: 1;
+      background: black;
+      height: 1px;
+      font-size: 0px;
+      line-height: 0px;
+      margin: 0px 8px;
+    }
+  }
+
+  .sign-up-modal-social {
+    display: flex;
+    justify-content: center;
+
+    svg {
+      color: $primary-color;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  }
+
+  .remember-and-button {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    .remember-and-button-col {
+      display: flex;
+      justify-content: center;
+
+      @media (max-width: $screen-sm) {
+        margin: 8px 0;
+      }
+    }
+
+    .ui.checkbox input:focus ~ label {
+      color: black;
+    }
+    .checkbox {
+      label {
+        color: black;
+        font-family: $primary-font-thin;
+      }
     }
   }
 }
