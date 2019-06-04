@@ -21,7 +21,7 @@ export default function Admin() {
         </Row>
         <Row>
           <Col md={6} xs={12} className="admin-column">
-            <AdminCard img={Update} title="Manage Questions" />
+            <AdminCard img={Update} title="Manage Questions" linkTo="/teacher/courses/renat/questions" />
           </Col>
           <Col md={6} xs={12} className="admin-column">
             <AdminCard img={Newsletter} title="Manage Coupons" linkTo="/teacher/courses/renat/coupons" />

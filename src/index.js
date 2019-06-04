@@ -16,6 +16,7 @@ import Quiz from './components/containers/Renat/Quiz';
 import Results from './components/containers/Renat/Results';
 import RenatAdmin from './components/containers/Renat/Admin';
 import RenatCoupons from './components/containers/Renat/Coupons';
+import RenatQuestions from './components/containers/Renat/Questions';
 
 //teacherHub
 import THCourses from './components/containers/TeacherHub/Courses';
@@ -43,6 +44,7 @@ ReactDOM.render(
           <Route path="/course/renat/quiz/results" exact component={Results} />
           <Route path="/teacher/courses/renat" exact component={RenatAdmin} />
           <Route path="/teacher/courses/renat/coupons" exact component={RenatCoupons} />
+          <Route path="/teacher/courses/renat/questions" exact component={RenatQuestions} />
 
           <Route component={NotFound} />
         </Switch>

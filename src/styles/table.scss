@@ -2,10 +2,38 @@
 
 .table-container {
   font-family: $primary-font-light;
+  margin-bottom: 30px !important;
 
   .table-header {
     background-color: $primary-color !important;
     color: white !important;
     font-family: $primary-font-regular;
+  }
+
+  .table-body {
+    tr {
+      td {
+        p {
+          margin: 3px 0;
+        }
+
+        a {
+          color: $primary-color;
+          cursor: pointer;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+
+  .table-footer {
+    a {
+      color: $primary-color;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

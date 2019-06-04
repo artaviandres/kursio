@@ -1,0 +1,36 @@
+@import '../../../styles/variables.scss';
+
+.questions-container {
+  display: flex;
+
+  .questions-wrapper {
+    margin-top: 30px;
+
+    .questions-text {
+      font-family: $primary-font-light;
+      font-size: 16px;
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+
+    .questions-add {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .questions-add-button {
+        width: 60%;
+        border-radius: 0;
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $primary-color;
+          color: white;
+        }
+      }
+    }
+  }
+}
