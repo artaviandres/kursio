@@ -10,6 +10,18 @@
   align-items: center;
   justify-content: center;
 
+  .quiz-progress-bar {
+    width: 100%;
+
+    .bar {
+      background-color: #fff !important;
+
+      .progress {
+        color: $primary-color !important;
+      }
+    }
+  }
+
   .quiz-progress {
     display: flex;
 
