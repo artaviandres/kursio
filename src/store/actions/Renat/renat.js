@@ -35,20 +35,32 @@ export const createRenatQuizQuestion = (question, answers) => (dispatch) => {
     "answers": formattedArray,
   })
     .then((res) => {
-      console.log(res);
+      toast.success('Question Created successfully!', {
+        position: "bottom-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+      });
     })
     .catch((err) => {
-      console.log(err);
+      toast.error('Question could not be created, please try again later.', {
+        position: "bottom-right",
+        autoClose: 8000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+      });
     });
 };
 
 export const deleteRenatQuizQuestion = (questionId) => (dispatch) => {
-  console.log(questionId);
   axios.delete(`${api.host}${api.renat.questions}`, {
     "colorQuestionId": questionId,
   })
     .then((res) => {
-      console.log('success');
       toast.success('Question Deleted successfully!', {
         position: "bottom-right",
         autoClose: 8000,
@@ -59,7 +71,6 @@ export const deleteRenatQuizQuestion = (questionId) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log('err');
       toast.error('Question could not be deleted, please try again later.', {
         position: "bottom-right",
         autoClose: 8000,
