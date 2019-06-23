@@ -1,20 +1,17 @@
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
 import { Trans, useTranslation } from "react-i18next";
-import { Grid, Row, Col } from "react-flexbox-grid";
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { connect } from 'react-redux';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import Header from "../presentationals/Header";
-import ProfileInfoSidebar from "../presentationals/ProfileInfoSidebar";
-import Text from "../presentationals/Text";
-import SocialMediaIcon from "../presentationals/SocialMediaIcon";
-import CourseCard from "../presentationals/CourseCard";
-import ProfileTabs from "../presentationals/ProfileTabs";
-import Footer from "../presentationals/Footer";
-import "../../styles/user-profile.scss";
-import "../../styles/button.scss";
-import "../../styles/layout.scss";
-import "../../styles/icons.scss";
+import Header from '../presentationals/Header';
+import ProfileInfoSidebar from '../presentationals/ProfileInfoSidebar';
+import Text from '../presentationals/Text';
+import SocialMediaIcon from '../presentationals/SocialMediaIcon';
+import CourseCard from '../presentationals/CourseCard';
+import Footer from '../presentationals/Footer';
+import '../../styles/user-profile.scss';
+
+import { getUserData } from '../../store/actions/user'
 
 //img
 import UserPicture from "../../assets/img/profilepicture.jpg";
@@ -22,7 +19,13 @@ import ReactBg from "../../assets/img/logo-og.png";
 import VueBg from "../../assets/img/vue.png";
 import CookiesBg from "../../assets/img/cookies.jpg";
 
-function UserProfile({ userData }) {
+function UserProfile({ getUserDataFn, history }) {
+  useEffect(() => {
+    const url = window.location.href;
+    const urlSplitted = url.split('/');
+    const userId = urlSplitted[urlSplitted.length - 1];
+    getUserDataFn(userId, history);
+  }, []);
   const { i18n, t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedModal, setSelectedModal] = useState("");
@@ -35,7 +38,7 @@ function UserProfile({ userData }) {
     setModalOpen(true);
     setSelectedModal("login");
   };
-
+  
   const openSignUp = () => {
     setModalOpen(true);
     setSelectedModal("signup");
@@ -48,25 +51,22 @@ function UserProfile({ userData }) {
   console.log(userData);
   return (
     <React.Fragment>
-      <Header
-        changeLanguage={val => changeLanguage(val)}
-        onOpenLogIn={() => openLogIn()}
-        onOpenSignUp={() => openSignUp()}
-      />
-      <Grid fluid className="profile-container">
+      <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()}  />
+      <Grid fluid className="teacher-container">
         <Row className="top-margin">
-          <ProfileInfoSidebar
+        <ProfileInfoSidebar
             rating={{
               rating: 4,
               reviews: 100
             }}
             profile={{
-              name: userData ? `${userData.name} ${userData.lastName}` : "",
-              ocupation: "Software Engineer",
-              isTeacherProfile: false,
-              UserPicture: UserPicture
-            }}
-          />
+              name:"Andrés Artavia",
+              ocupation:"Software Engineer",
+              isTeacherProfile:true,
+              UserPicture : UserPicture
+
+            }} 
+            />
           <Col md={9} xs={12}>
             <Grid fluid>
               <Row between="md" className="row-container">
@@ -97,9 +97,7 @@ function UserProfile({ userData }) {
                 </Col>
               </Row>
               <Row>
-                <Text size="24px" type="thin" margin="0">
-                  Bio
-                </Text>
+                <Text size="24px" type="thin" margin="0">About Me</Text>
               </Row>
               <Row className="row-container">
                 <p className="bio-text">
@@ -123,11 +121,9 @@ function UserProfile({ userData }) {
                 </p>
               </Row>
               <Row>
-                <Text size="24px" type="thin" margin="0 0 20px 0">
-                  Courses
-                </Text>
+                <Text size="24px" type="thin" margin="0 0 20px 0">Teacher Courses</Text>
               </Row>
-              <Row className="row-container row-courses divission-border cards-wrapper">
+              <Row className="row-container row-courses">
                 <CourseCard
                   title="React Basics"
                   category="Development"
@@ -136,8 +132,6 @@ function UserProfile({ userData }) {
                   price="$55"
                   image={ReactBg}
                   description="Learn how to use one of the most powerful Front-end tools such as React from scratch, with all its twists."
-                  type="userProfile"
-                  views="800"
                 />
                 <CourseCard
                   title="VueJS Basics"
@@ -147,8 +141,6 @@ function UserProfile({ userData }) {
                   price="$95"
                   image={VueBg}
                   description="Being VueJS one of the most used Javascript Libraries for creating powerful and dynamic Views, it's becoming a must for Front-end developers all around the world."
-                  type="userProfile"
-                  views="800"
                 />
                 <CourseCard
                   title="Baking some amazing Cookies!"
@@ -158,13 +150,8 @@ function UserProfile({ userData }) {
                   price="$25"
                   image={CookiesBg}
                   description="As a software engineer. i love to bake some cookies as well, and they're usually delicious!!"
-                  type="userProfile"
-                  views="800"
                 />
               </Row>
-            </Grid>
-            <Grid fluid style={{ paddingBottom: "50px" }}>
-              <ProfileTabs />
             </Grid>
           </Col>
         </Row>
@@ -174,11 +161,12 @@ function UserProfile({ userData }) {
   );
 }
 
-const mapStateToProps = state => ({
-  userData: state.authReducer.userData ? state.authReducer.userData : null
+const mapStateToProps = (state) => ({
+  questions: state.renatReducer.questions ? state.renatReducer.questions : [],
 });
 
-export default connect(
-  mapStateToProps,
-  null
-)(UserProfile);
+const mapDispatchToProps = dispatch => ({
+  getUserDataFn: (id, history) => dispatch(getUserData(id, history)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

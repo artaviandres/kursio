@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { BreakpointProvider } from 'react-socks';
 import App from './components/containers/App';
-import TeacherProfile from './components/containers/TeacherProfile';
 import UserProfile from './components/containers/UserProfile';
+import MyProfile from './components/containers/MyProfile';
 import Certificates from './components/containers/Certificates';
 import AboutUs from './components/containers/AboutUs';
 import Course from './components/containers/Course';
@@ -32,8 +32,8 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={App} />
-          <Route path="/teacher" exact component={TeacherProfile} />
-          <Route path="/profile" exact component={UserProfile} />
+          <Route path="/user" component={UserProfile} />
+          <Route path="/profile" exact component={MyProfile} />
           <Route path="/certificates" exact component={Certificates} />
           <Route path="/about" exact component={AboutUs} />
           <Route path="/course" exact component={Course} />
