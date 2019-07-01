@@ -22,6 +22,9 @@ import {
   FiBell,
   FiBookOpen
 } from "react-icons/fi";
+
+import { MdClose, MdDehaze } from "react-icons/md";
+
 import { Trans, useTranslation } from "react-i18next";
 import Breakpoint from "react-socks";
 import { Link } from "react-router-dom";
@@ -191,37 +194,32 @@ function Header({
           </div>
         </Breakpoint>
         <Breakpoint large down>
-          <span onClick={toggleNav}>{isNavOpen ? "Hide" : "Show"}</span>
+          <span onClick={toggleNav}>
+            {isNavOpen ? (
+              <MdClose className="main-menu-icon" size={30} />
+            ) : (
+              <MdDehaze className="main-menu-icon" size={30} />
+            )}
+          </span>
           <div
             className={isNavOpen ? "xs-nav-wrapper show-nav" : "xs-nav-wrapper"}
           >
             {userData ? (
-              <div className="header-auth">
-                <a
-                  className="header-auth-image"
-                  // onClick={() => setProfileOptionsOpen(!isProfileOptionsOpen)}
-                >
-                  <img
-                    src={
-                      userData && userData.image
-                        ? userData.image
-                        : PlaceholderImage
-                    }
-                  />
-                  <h3 style={{ margin: "0" }}>
-                    {userData ? userData.name : ""}
-                  </h3>
-                </a>
-                {renderIsTeacher(userData)}
-                <a>
-                  <FiShoppingCart size={24} />
-                </a>
-              </div>
+              <a
+                className="header-auth-image"
+                // onClick={() => setProfileOptionsOpen(!isProfileOptionsOpen)}
+              >
+                <img
+                  src={
+                    userData && userData.image
+                      ? userData.image
+                      : PlaceholderImage
+                  }
+                />
+                <h3 style={{ margin: "0" }}>{userData ? userData.name : ""}</h3>
+              </a>
             ) : (
-              <div className="header-non-auth">
-                <a onClick={() => setLogInModalStatus(true)}>Sign In</a>
-                <Button classList="header-auth-register" text="Register" />
-              </div>
+              ""
             )}
             <div className="header-links">
               <a>About Us</a>
@@ -244,6 +242,11 @@ function Header({
             </div>
             {userData ? (
               <div className="header-auth-options">
+                {renderIsTeacher(userData)}
+                <a>
+                  <FiShoppingCart size={24} />
+                  Cart
+                </a>
                 <Link to="/profile">
                   <FiEdit size={22} />
                   Profile
@@ -275,7 +278,14 @@ function Header({
                 </a>
               </div>
             ) : (
-              ""
+              <div className="header-non-auth">
+                <a onClick={() => setLogInModalStatus(true)}>Sign In</a>
+                <Button
+                  onClick={() => setLogInModalStatus(true)}
+                  classList="header-auth-register"
+                  text="Register"
+                />
+              </div>
             )}
           </div>
         </Breakpoint>
