@@ -22,6 +22,9 @@ import {
   FiBell,
   FiBookOpen
 } from "react-icons/fi";
+
+import { MdClose, MdDehaze } from "react-icons/md";
+
 import { Trans, useTranslation } from "react-i18next";
 import Breakpoint from "react-socks";
 import { Link } from "react-router-dom";
@@ -48,6 +51,7 @@ function Header({
   const [isSearchFocused, setSearchFocused] = useState(false);
   const [isProfileOptionsOpen, setProfileOptionsOpen] = useState(false);
   const { t } = useTranslation();
+  const [isNavOpen, setToggleNav] = useState(false);
 
   const searchTextChanged = e => {
     e.preventDefault();
@@ -64,6 +68,10 @@ function Header({
   const closeSearch = () => {
     setSearchOpen(!isSearchOpen);
     setSearchText(setSearchText(""));
+  };
+
+  const toggleNav = () => {
+    setToggleNav(!isNavOpen);
   };
 
   const renderIsTeacher = userData => {
@@ -97,35 +105,109 @@ function Header({
             <img src={LogoThin} />
           </Link>
         </div>
-        <div className="header-links">
-          <a>About Us</a>
-          <a>Contact</a>
-          <a>FAQs</a>
-        </div>
-        <div
-          className={
-            isSearchFocused ? "header-search focused" : "header-search"
-          }
-        >
-          <input
-            placeholder="Search"
-            onFocus={() => setSearchFocused(true)}
-            onBlur={() => setSearchFocused(false)}
-          />
-          <a>
-            <IoIosSearch size={18} />
-          </a>
-        </div>
-        {userData ? (
-          <div className="header-auth">
-            {renderIsTeacher(userData)}
-            <a>
-              <FiShoppingCart size={24} />
-            </a>
-            <div className="header-auth-dropdown">
+        <Breakpoint xlarge up>
+          <div className="nav-wrapper">
+            <div className="header-links">
+              <a>About Us</a>
+              <a>Contact</a>
+              <a>FAQs</a>
+            </div>
+            <div
+              className={
+                isSearchFocused ? "header-search focused" : "header-search"
+              }
+            >
+              <input
+                placeholder="Search"
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => setSearchFocused(false)}
+              />
+              <a>
+                <IoIosSearch size={18} />
+              </a>
+            </div>
+            {userData ? (
+              <div className="header-auth">
+                {renderIsTeacher(userData)}
+                <a>
+                  <FiShoppingCart size={24} />
+                </a>
+                <div className="header-auth-dropdown">
+                  <a
+                    className="header-auth-image"
+                    onClick={() => setProfileOptionsOpen(!isProfileOptionsOpen)}
+                  >
+                    <img
+                      src={
+                        userData && userData.image
+                          ? userData.image
+                          : PlaceholderImage
+                      }
+                    />
+                  </a>
+                  <div
+                    className={
+                      isProfileOptionsOpen
+                        ? "header-auth-options"
+                        : "header-auth-options hidden"
+                    }
+                  >
+                    <Link to="/profile">
+                      <FiEdit size={22} />
+                      Profile
+                    </Link>
+                    <Link>
+                      <FiBookOpen size={22} />
+                      My Courses
+                    </Link>
+                    <Link>
+                      <FiBell size={22} />
+                      Notifications
+                    </Link>
+                    <Link>
+                      <FiHeart size={22} />
+                      Wishlisted
+                    </Link>
+                    <Link>
+                      <FiAward size={22} />
+                      Certificates
+                    </Link>
+                    <a
+                      onClick={() => {
+                        setProfileOptionsOpen(false);
+                        logOutStatus(true);
+                      }}
+                    >
+                      <FiLogOut size={22} />
+                      Log Out
+                    </a>
+                  </div>
+                </div>
+                <h3 style={{ margin: "0" }}>{userData ? userData.name : ""}</h3>
+              </div>
+            ) : (
+              <div className="header-non-auth">
+                <a onClick={() => setLogInModalStatus(true)}>Sign In</a>
+                <Button classList="header-auth-register" text="Register" />
+              </div>
+            )}
+          </div>
+        </Breakpoint>
+        <Breakpoint large down>
+          <span onClick={toggleNav}>
+            {isNavOpen ? (
+              <MdClose className="main-menu-icon" size={30} />
+            ) : (
+              <MdDehaze className="main-menu-icon" size={30} />
+            )}
+          </span>
+          <div
+            className={isNavOpen ? "xs-nav-wrapper show-nav" : "xs-nav-wrapper"}
+          >
+            {userData ? (
               <a
                 className="header-auth-image"
-                onClick={() => setProfileOptionsOpen(!isProfileOptionsOpen)}
+                // onClick={() => setProfileOptionsOpen(!isProfileOptionsOpen)}
               >
                 <img
                   src={
@@ -134,14 +216,37 @@ function Header({
                       : PlaceholderImage
                   }
                 />
+                <h3 style={{ margin: "0" }}>{userData ? userData.name : ""}</h3>
               </a>
-              <div
-                className={
-                  isProfileOptionsOpen
-                    ? "header-auth-options"
-                    : "header-auth-options hidden"
-                }
-              >
+            ) : (
+              ""
+            )}
+            <div className="header-links">
+              <a>About Us</a>
+              <a>Contact</a>
+              <a>FAQs</a>
+            </div>
+            <div
+              className={
+                isSearchFocused ? "header-search focused" : "header-search"
+              }
+            >
+              <input
+                placeholder="Search"
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => setSearchFocused(false)}
+              />
+              <a>
+                <IoIosSearch size={18} />
+              </a>
+            </div>
+            {userData ? (
+              <div className="header-auth-options">
+                {renderIsTeacher(userData)}
+                <a>
+                  <FiShoppingCart size={24} />
+                  Cart
+                </a>
                 <Link to="/profile">
                   <FiEdit size={22} />
                   Profile
@@ -172,15 +277,18 @@ function Header({
                   Log Out
                 </a>
               </div>
-            </div>
-            <h3 style={{ margin: "0" }}>{userData ? userData.name : ""}</h3>
+            ) : (
+              <div className="header-non-auth">
+                <a onClick={() => setLogInModalStatus(true)}>Sign In</a>
+                <Button
+                  onClick={() => setLogInModalStatus(true)}
+                  classList="header-auth-register"
+                  text="Register"
+                />
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="header-non-auth">
-            <a onClick={() => setLogInModalStatus(true)}>Sign In</a>
-            <Button classList="header-auth-register" text="Register" />
-          </div>
-        )}
+        </Breakpoint>
       </div>
     </div>
   );
