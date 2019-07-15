@@ -14,12 +14,12 @@ import '../../styles/user-profile.scss';
 import { getUserData } from '../../store/actions/user'
 
 //img
-import UserPicture from '../../assets/img/profilepicture.jpg';
+import PlaceholderUser from '../../assets/img/placeholder-user.png';
 import ReactBg from '../../assets/img/logo-og.png';
 import VueBg from '../../assets/img/vue.png';
 import CookiesBg from '../../assets/img/cookies.jpg';
 
-function UserProfile({ getUserDataFn, history }) {
+function UserProfile({ getUserDataFn, history, userData }) {
   useEffect(() => {
     const url = window.location.href;
     const urlSplitted = url.split('/');
@@ -51,27 +51,26 @@ function UserProfile({ getUserDataFn, history }) {
         <Row className="top-margin">
         <ProfileInfoSidebar
             rating={{
-              rating: 4,
+              rating: userData.ratingAverage,
               reviews: 100
             }}
             profile={{
-              name:"Andrés Artavia",
-              ocupation:"Software Engineer",
-              isTeacherProfile:true,
-              UserPicture : UserPicture
-
+              name: `${userData.name} ${userData.lastName}`,
+              ocupation: userData.designation,
+              isTeacherProfile: true,
+              UserPicture : userData.avatar || PlaceholderUser
             }} 
             />
           <Col md={9} xs={12}>
             <Grid fluid>
               <Row between="md" className="row-container">
                 <Col md={6} xs={4}>
-                  <Text size="50px" type="thin" margin="0">Andrés Artavia</Text>
+                  <Text size="50px" type="thin" margin="0">{userData.name} {userData.lastName}</Text>
                 </Col>
                 <Col md={4} xs={6} className="social-media">
-                  <SocialMediaIcon icon={<FaFacebookF size={17} />} backgroundColor="#3b5998" margin="0 5px" link="https://www.facebook.com/artaviandres" />
-                  <SocialMediaIcon icon={<FaInstagram size={17} />} backgroundColor="#DD2A7B" margin="0 5px" link="https://www.instagram.com/artaviandres/" />
-                  <SocialMediaIcon icon={<FaLinkedinIn size={17} />} backgroundColor="#0077b5" margin="0 5px" link="https://www.linkedin.com/in/artaviandres/" />
+                  {userData.facebookUrl && <SocialMediaIcon icon={<FaFacebookF size={17} />} backgroundColor="#3b5998" margin="0 5px" link={userData.facebookUrl} />}
+                  {userData.instagramUrl && <SocialMediaIcon icon={<FaInstagram size={17} />} backgroundColor="#DD2A7B" margin="0 5px" link={userData.instagramUrl} />}
+                  {userData.linkedInUrl && <SocialMediaIcon icon={<FaLinkedinIn size={17} />} backgroundColor="#0077b5" margin="0 5px" link={userData.linkedInUrl} />}
                 </Col>
               </Row>
               <Row>
@@ -79,7 +78,8 @@ function UserProfile({ getUserDataFn, history }) {
               </Row>
               <Row className="row-container">
                 <p className="bio-text">
-                  John studied Software Development at UC Berkeley and has more than 15 years of experience in software quality assurance. He's been building software and tooling, managing software engineer team many years. When he's not reading about the latest trends in computing he spends his time with his wife, snowboarding, or running.. John studied Software Development at UC Berkeley and has more than 15 years of experience in software quality assurance. He's been building software and tooling, managing software engineer team many years. When he's not reading about the latest trends in computing he spends his time with his wife, snowboarding, or running.. John studied Software Development at UC Berkeley and has more than 15 years of experience in software quality assurance. He's been building software and tooling, managing software engineer team many years. When he's not reading about the latest trends in computing he spends his time with his wife, snowboarding, or running.
+                  {/* John studied Software Development at UC Berkeley and has more than 15 years of experience in software quality assurance. He's been building software and tooling, managing software engineer team many years. When he's not reading about the latest trends in computing he spends his time with his wife, snowboarding, or running.. John studied Software Development at UC Berkeley and has more than 15 years of experience in software quality assurance. He's been building software and tooling, managing software engineer team many years. When he's not reading about the latest trends in computing he spends his time with his wife, snowboarding, or running.. John studied Software Development at UC Berkeley and has more than 15 years of experience in software quality assurance. He's been building software and tooling, managing software engineer team many years. When he's not reading about the latest trends in computing he spends his time with his wife, snowboarding, or running. */}
+                  {userData.aboutMe}
                 </p>
               </Row>
               <Row>
@@ -124,7 +124,7 @@ function UserProfile({ getUserDataFn, history }) {
 }
 
 const mapStateToProps = (state) => ({
-  questions: state.renatReducer.questions ? state.renatReducer.questions : [],
+  userData: state.userReducer ? state.userReducer.userData : [],
 });
 
 const mapDispatchToProps = dispatch => ({
