@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { connect } from 'react-redux';
+import { Grid, Row, Col } from "react-flexbox-grid";
+import { connect } from "react-redux";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import Header from '../presentationals/Header';
-import ProfileInfoSidebar from '../presentationals/ProfileInfoSidebar';
-import Text from '../presentationals/Text';
-import SocialMediaIcon from '../presentationals/SocialMediaIcon';
-import CourseCard from '../presentationals/CourseCard';
-import Footer from '../presentationals/Footer';
-import '../../styles/user-profile.scss';
+import Header from "../presentationals/Header";
+import ProfileInfoSidebar from "../presentationals/ProfileInfoSidebar";
+import Text from "../presentationals/Text";
+import SocialMediaIcon from "../presentationals/SocialMediaIcon";
+import CourseCard from "../presentationals/CourseCard";
+import Footer from "../presentationals/Footer";
+import "../../styles/user-profile.scss";
 
-import { getUserData } from '../../store/actions/user'
+import { getUserData } from "../../store/actions/user";
 
 //img
 import PlaceholderUser from '../../assets/img/placeholder-user.png';
@@ -22,13 +23,13 @@ import CookiesBg from '../../assets/img/cookies.jpg';
 function UserProfile({ getUserDataFn, history, userData }) {
   useEffect(() => {
     const url = window.location.href;
-    const urlSplitted = url.split('/');
+    const urlSplitted = url.split("/");
     const userId = urlSplitted[urlSplitted.length - 1];
-    getUserDataFn(userId, history);
+    // getUserDataFn(userId, history);
   }, []);
   const { i18n, t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedModal, setSelectedModal] = useState('');
+  const [selectedModal, setSelectedModal] = useState("");
 
   const changeLanguage = lng => {
     i18n.changeLanguage(lng);
@@ -36,20 +37,23 @@ function UserProfile({ getUserDataFn, history, userData }) {
 
   const openLogIn = () => {
     setModalOpen(true);
-    setSelectedModal('login')
-  };
-  
-  const openSignUp = () => {
-    setModalOpen(true);
-    setSelectedModal('signup')
+    setSelectedModal("login");
   };
 
+  const openSignUp = () => {
+    setModalOpen(true);
+    setSelectedModal("signup");
+  };
   return (
     <React.Fragment>
-      <Header changeLanguage={(val) => changeLanguage(val)} onOpenLogIn={() => openLogIn()} onOpenSignUp={() => openSignUp()}  />
+      <Header
+        changeLanguage={val => changeLanguage(val)}
+        onOpenLogIn={() => openLogIn()}
+        onOpenSignUp={() => openSignUp()}
+      />
       <Grid fluid className="teacher-container">
         <Row className="top-margin">
-        <ProfileInfoSidebar
+          <ProfileInfoSidebar
             rating={{
               rating: userData.ratingAverage,
               reviews: 100
@@ -74,7 +78,9 @@ function UserProfile({ getUserDataFn, history, userData }) {
                 </Col>
               </Row>
               <Row>
-                <Text size="24px" type="thin" margin="0">About Me</Text>
+                <Text size="24px" type="thin" margin="0">
+                  About Me
+                </Text>
               </Row>
               <Row className="row-container">
                 <p className="bio-text">
@@ -83,7 +89,9 @@ function UserProfile({ getUserDataFn, history, userData }) {
                 </p>
               </Row>
               <Row>
-                <Text size="24px" type="thin" margin="0 0 20px 0">Teacher Courses</Text>
+                <Text size="24px" type="thin" margin="0 0 20px 0">
+                  Teacher Courses
+                </Text>
               </Row>
               <Row className="row-container row-courses">
                 <CourseCard
@@ -128,7 +136,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getUserDataFn: (id, history) => dispatch(getUserData(id, history)),
+  getUserDataFn: (id, history) => dispatch(getUserData(id, history))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UserProfile);

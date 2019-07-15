@@ -14,13 +14,14 @@ import SocialMediaIcon from "./SocialMediaIcon";
 import "../../styles/log-in-modal.scss";
 
 import { setCaptchaValidation } from "../../store/actions/modals";
-import { getUserLogin } from "../../store/actions/auth";
+import { getUserLogin, getUserSignUp } from "../../store/actions/auth";
 import STYLES from "../../styles/variables.scss";
 import "react-toastify/dist/ReactToastify.css";
 
 function LogInModal({
   setCaptchaValidationStatus,
   getUserLoginFunc,
+  getUserSignupFunc,
   captchaValidation
 }) {
   const [username, setUsername] = useState("");
@@ -47,7 +48,7 @@ function LogInModal({
     }
   };
   const submitSignUpSocial = (user, social) => {
-    getUserLoginFunc(user, social);
+    getUserSignupFunc(user, social);
   };
   let fbLogin = React.createRef();
   let fbLoginClick = () => {
@@ -200,7 +201,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setCaptchaValidationStatus: status => dispatch(setCaptchaValidation(status)),
   getUserLoginFunc: (username, password) =>
-    dispatch(getUserLogin(username, password))
+    dispatch(getUserLogin(username, password)),
+  getUserSignupFunc: (user, social) => dispatch(getUserSignUp(user, social))
 });
 
 export default connect(
